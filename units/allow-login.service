@@ -1,0 +1,9 @@
+[Unit]
+Description=Allow login after reaching multi-user target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/rm -f /run/nologin
+
+[Install]
+WantedBy=multi-user.target

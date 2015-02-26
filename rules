@@ -224,7 +224,9 @@ override_dh_install:
 		debian/tinysystemd/lib/lsb/init-functions.d/40-systemd
 	install --mode=644 debian/tmpfiles.d/debian.conf \
 		debian/tinysystemd/usr/lib/tmpfiles.d/
-	install --mode=644 debian/debian-fixup.service debian/ifup@.service \
+	install --mode=644 debian/units/debian-fixup.service \
+		debian/units/ifup@.service \
+		debian/units/allow-login.service \
 		debian/tinysystemd/lib/systemd/system/
 	#install --mode=644 debian/extra/udev-finish.service \
 	#	debian/udev/lib/systemd/system/
