@@ -1,0 +1,315 @@
+#! /usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+DEB_BUILD_OPTIONS="parallel=32"
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+ifneq (,$(findstring stage1,$(DEB_BUILD_PROFILES)))
+BOOTSTRAP_DH_FLAGS := -Ngir1.2-gudev-1.0 -Nlibgudev-1.0-0 -Nlibgudev-1.0-dev
+endif
+
+CONFFLAGS = \
+	--with-rootprefix= \
+	--with-rootlibdir=/lib/$(DEB_HOST_MULTIARCH) \
+	--with-zshcompletiondir=/usr/share/zsh/vendor-completions \
+	--with-sysvinit-path=/etc/init.d \
+	--with-sysvrcnd-path=/etc \
+	--with-firmware-path=/lib/firmware \
+	--with-debug-shell=/bin/bash \
+	--with-telinit=/lib/sysvinit/telinit \
+	--disable-coredump \
+	--disable-efi \
+	--disable-myhostname \
+	--disable-vconsole \
+	--disable-microhttpd \
+	--disable-sysusers \
+	--disable-silent-rules \
+	--with-ntp-servers="0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org"  \
+	--with-system-uid-max=999 \
+	--with-system-gid-max=999 \
+	--disable-python-devel \
+	--disable-hibernate \
+	--enable-split-usr \
+	--disable-qrencode \
+	--disable-bootchart \
+	--disable-backlight \
+	--disable-gudev \
+	--disable-logind \
+	--disable-rfkill \
+	--disable-gcrypt \
+	--disable-randomseed \
+	--disable-machined \
+	--disable-hostnamed \
+	--disable-timedated \
+	--disable-binfmt \
+	--disable-firstboot \
+	--disable-libcurl \
+	--disable-timesyncd \
+	--disable-hwdb \
+	--disable-localed \
+	--disable-polkit \
+	--disable-resolved \
+	--disable-networkd \
+	--disable-multi-seat-x \
+	--program-transform-name='s/systemd-sysctl/sd-sysctl/;s/systemd-fsck/sd-fsck/;s/systemd-analyze/sd-analyze/;s/systemd-escape/sd-escape/;s/systemd-notify/sd-notify/;s/systemd-cat/sd-cat/;s/systemd-delta/sd-delta/;s/systemd-path/sd-path/;s/systemd-run/runservice/;s/systemd-//' \
+	--with-rc-local-script-path-start=/etc/rc.local
+
+ifeq (,$(findstring stage1,$(DEB_BUILD_PROFILES)))
+CONFFLAGS += --enable-libcryptsetup
+endif
+
+CONFFLAGS_deb = \
+	--enable-selinux \
+	--enable-introspection \
+	PYTHON=python3 \
+	$(NULL)
+
+CONFFLAGS_udeb = \
+	--disable-libcryptsetup \
+	--disable-pam \
+	--disable-audit \
+	--disable-selinux \
+	--disable-smack \
+	--disable-ima \
+	--disable-introspection \
+	--disable-gtk-doc \
+	--disable-binfmt \
+	--disable-readahead \
+	--disable-bootchart \
+	--disable-quotacheck \
+	--disable-tmpfiles \
+	--disable-randomseed \
+	--disable-backlight \
+	--disable-logind \
+	--disable-machined \
+	--disable-hostnamed \
+	--disable-timedated \
+	--disable-networkd \
+	--disable-timesyncd \
+	--disable-localed \
+	--disable-resolved \
+	--disable-polkit \
+	--disable-acl \
+	--disable-gcrypt \
+	--disable-gudev \
+	--disable-rfkill \
+	--disable-multi-seat-x \
+	--disable-manpages \
+	--without-python
+
+override_dh_auto_configure:
+	dh_auto_configure --builddirectory=build-deb \
+		-- $(CONFFLAGS) $(CONFFLAGS_deb)
+	dh_auto_configure --builddirectory=build-udeb \
+		-- $(CONFFLAGS) $(CONFFLAGS_udeb)
+
+override_dh_auto_build:
+	dh_auto_build --builddirectory=build-deb
+	dh_auto_build --builddirectory=build-udeb
+
+override_dh_auto_install:
+	dh_auto_install --builddirectory=build-deb \
+		--destdir=debian/install/deb
+	dh_auto_install --builddirectory=build-udeb \
+		--destdir=debian/install/udeb
+
+override_dh_auto_clean:
+	dh_auto_clean --builddirectory=build-deb
+	dh_auto_clean --builddirectory=build-udeb
+	rm -rf debian/install/
+	# remove pre-generated man pages so they are rebuilt
+	rm -f man/*.[13578]
+	# remove pre-generated rules and unit files so they are rebuilt
+	rm -f rules/99-systemd.rules \
+		units/emergency.service \
+		units/systemd-udevd.service \
+		units/systemd-udev-settle.service \
+		units/systemd-udev-trigger.service
+	# remove Python byte code files
+	rm -f *.pyc
+	rm -f tools/__pycache__/xml_helper.cpython-34.pyc
+
+override_dh_install:
+	# remove excluded files
+	rm -f debian/install/*/bin/firstboot
+	rm -f debian/install/*/bin/udevadm
+	rm -f debian/install/*/bin/sd-escape
+	rm -f debian/install/*/usr/bin/cgtop
+	rm -f debian/install/*/usr/bin/sd-delta
+	rm -f debian/install/*/usr/bin/sd-path
+	rm -f debian/install/*/usr/bin/cgls
+	rm -f debian/install/*/usr/bin/sd-analyze
+	rm -f debian/install/*/usr/bin/detect-virt
+	rm -f debian/install/*/usr/bin/sd-cat
+	rm -f debian/install/*/usr/bin/stdio-bridge
+	rm -f debian/install/*/usr/bin/nspawn
+	rm -f debian/install/*/usr/lib/*/pkgconfig/libsystemd.pc
+	rm -f debian/install/*/usr/lib/*/pkgconfig/systemd.pc
+	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
+	rm -f debian/install/*/usr/share/factory/etc/pam.d/other
+	rm -f debian/install/*/usr/share/factory/etc/pam.d/system-auth
+	rm -fr debian/install/*/usr/include/systemd/
+	rm -fr debian/install/*/usr/share/man/man3/
+	# remove udev-related files
+	rm -f debian/install/*/lib/udev/ata_id
+	rm -f debian/install/*/lib/udev/v4l_id
+	rm -f debian/install/*/lib/udev/mtd_probe
+	rm -f debian/install/*/lib/udev/accelerometer
+	rm -f debian/install/*/lib/udev/scsi_id
+	rm -f debian/install/*/lib/udev/cdrom_id
+	rm -f debian/install/*/lib/udev/collect
+	rm -f debian/install/*/usr/include/libudev.h
+	rm -f debian/install/*/lib/*/libudev.so.1.6.2
+	rm -f debian/install/*/lib/*/libudev.so.1
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-alsa.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-serial.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-cdrom_id.rules
+	rm -f debian/install/*/lib/udev/rules.d/64-btrfs.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-storage-tape.rules
+	rm -f debian/install/*/lib/udev/rules.d/61-accelerometer.rules
+	rm -f debian/install/*/lib/udev/rules.d/50-udev-default.rules
+	rm -f debian/install/*/lib/udev/rules.d/80-net-setup-link.rules
+	rm -f debian/install/*/lib/udev/rules.d/95-udev-late.rules
+	rm -f debian/install/*/lib/udev/rules.d/42-usb-hid-pm.rules
+	rm -f debian/install/*/lib/udev/rules.d/75-net-description.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-storage.rules
+	rm -f debian/install/*/lib/udev/rules.d/70-mouse.rules
+	rm -f debian/install/*/lib/udev/rules.d/78-sound-card.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-drm.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-v4l.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-persistent-input.rules
+	rm -f debian/install/*/lib/udev/rules.d/75-tty-description.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-keyboard.rules
+	rm -f debian/install/*/lib/udev/rules.d/80-drivers.rules
+	rm -f debian/install/*/lib/udev/rules.d/70-touchpad.rules
+	rm -f debian/install/*/lib/udev/rules.d/75-probe_mtd.rules
+	rm -f debian/install/*/usr/lib/*/libudev.so
+	rm -f debian/install/*/usr/lib/*/pkgconfig/libudev.pc
+	rm -f debian/install/*/usr/share/pkgconfig/udev.pc
+	rm -fr debian/install/*/lib/udev/hwdb.d/
+	# remove unnecessary / unused files
+	rm -fr debian/install/*/usr/share/man/man3/
+	rm -f debian/install/*/usr/share/doc/systemd/LICENSE.*
+	rm -f debian/install/*/var/log/README
+	rm -f debian/install/*/etc/init.d/README
+	rm -f debian/install/*/usr/share/man/man8/kernel-install.8
+	rm -f debian/install/*/usr/bin/kernel-install
+	rm -f debian/install/*/usr/share/zsh/vendor-completions/_kernel-install
+	rm -f debian/install/*/usr/share/bash-completion/completions/kernel-install
+	rm -rf debian/install/*/usr/lib/kernel/install.d
+	rm -rf debian/install/*/etc/rpm/
+	rm -rf debian/install/*/usr/lib/rpm/
+	rm -rf debian/install/*/etc/kernel/
+	rm -f debian/install/*/usr/lib/sysctl.d/50-default.conf
+	find debian/install/ -name '*.la' -delete
+	# remove files related to factory-reset feature
+	find debian/install/ \( -name 'systemd-update-done*' -o \
+		-name systemd-journal-catalog-update.service -o \
+		-name systemd-udev-hwdb-update.service -o \
+		-name ldconfig.service -o \
+		-name etc.conf \) -delete
+	# remove .so for deprecated compatibility libraries
+	rm -f debian/install/*/usr/lib/*/libsystemd-daemon.so
+	rm -f debian/install/*/usr/lib/*/libsystemd-login.so
+	rm -f debian/install/*/usr/lib/*/libsystemd-id128.so
+	rm -f debian/install/*/usr/lib/*/libsystemd-journal.so
+	# remove symlinks enabling default-on services
+	rm -rf debian/install/*/etc/systemd/system/*.target.wants/
+	dh_install -pudev-udeb -plibudev1-udeb --sourcedir=debian/install/udeb
+	dh_install $(BOOTSTRAP_DH_FLAGS) -Nudev-udeb -Nlibudev1-udeb --sourcedir=debian/install/deb --fail-missing
+	# install some files manually, --sourcedir makes that necessary
+	# systemd
+	install -D --mode=644 debian/init-functions.d/40-systemd \
+		debian/tinysystemd/lib/lsb/init-functions.d/40-systemd
+	install --mode=644 debian/tmpfiles.d/debian.conf \
+		debian/tinysystemd/usr/lib/tmpfiles.d/
+	install --mode=644 debian/debian-fixup.service debian/ifup@.service \
+		debian/tinysystemd/lib/systemd/system/
+	#install --mode=644 debian/extra/udev-finish.service \
+	#	debian/udev/lib/systemd/system/
+	install --mode=755 debian/debian-fixup \
+		debian/tinysystemd/lib/systemd/
+	# Make sure the runlevel services are known by systemd so their targets
+	# get launches. See https://bugzilla.redhat.com/show_bug.cgi?id=1002806
+	for t in poweroff rescue multi-user graphical reboot; do \
+		mkdir -p debian/tinysystemd/lib/systemd/system/$${t}.target.wants;\
+		ln -s ../systemd-update-utmp-runlevel.service \
+			debian/tinysystemd/lib/systemd/system/$${t}.target.wants ;\
+	done
+	# man files for example code in /usr/share/doc
+	#mkdir -p debian/tinysystemd/usr/share/man/man3/
+	#mv debian/libsystemd-dev/usr/share/man/man3/sd-readahead.3 \
+	#	debian/libsystemd-dev/usr/share/man/man3/sd_readahead.3 \
+	#	debian/tinysystemd/usr/share/man/man3/
+	#install --mode=755 debian/systemd-logind-launch \
+	#	debian/tinysystemd/lib/systemd/
+	# remove duplicates
+	# files shipped by systemd-sysv / sysvinit
+	rm debian/tinysystemd/usr/share/man/man1/init.1
+	rm debian/tinysystemd/usr/share/man/man8/halt.8
+	rm debian/tinysystemd/usr/share/man/man8/poweroff.8
+	rm debian/tinysystemd/usr/share/man/man8/reboot.8
+	rm debian/tinysystemd/usr/share/man/man8/shutdown.8
+	rm debian/tinysystemd/usr/share/man/man8/telinit.8
+	rm debian/tinysystemd/usr/share/man/man8/runlevel.8
+	# files shipped by libpam-systemd
+	rm debian/tinysystemd/usr/share/man/man8/pam_systemd.8
+	# files shipped by udev
+	rm -r debian/tinysystemd/etc/udev/
+	rm debian/tinysystemd/lib/systemd/system/systemd-udev*
+	rm debian/tinysystemd/lib/systemd/system/*.target.wants/systemd-udev*
+	rm debian/tinysystemd/lib/systemd/udevd
+	rm debian/tinysystemd/usr/share/man/man7/udev.7
+	rm debian/tinysystemd/usr/share/man/man8/*udev*.8
+	# files shipped by udev / bash-completion
+	rm debian/tinysystemd/usr/share/bash-completion/completions/udevadm
+	# files systemd by cryptsetup
+ifeq (,$(findstring stage1,$(DEB_BUILD_PROFILES)))
+	rm debian/tinysystemd/usr/share/man/man5/crypttab.5
+endif
+# use symlinked doc directories as the old udev package did
+override_dh_installdocs:
+	dh_installdocs -pudev -plibudev-dev --link-doc=libudev1
+	dh_installdocs -pgir1.2-gudev-1.0 -plibgudev-1.0-dev --link-doc=libgudev-1.0-0
+	dh_installdocs --remaining-packages
+
+override_dh_installinit:
+	dh_installinit --no-start
+	#dh_installinit --name=udev-finish --no-start
+	#dh_installinit --name=udevtrigger --no-start
+	#dh_installinit --name=udevmonitor --no-start
+	#dh_installinit --name=udev-fallback-graphics --no-start
+
+# The SysV compat tools (which are symlinks to systemctl) are
+# quasi-essential, so add its dependencies to Pre-Depends
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=753589
+override_dh_shlibdeps:
+	dh_shlibdeps -psystemd -- -dPre-Depends -edebian/tinysystemd/bin/systemctl -dDepends
+	dh_shlibdeps --remaining-packages
+
+override_dh_makeshlibs:
+	dh_makeshlibs -plibudev1 --add-udeb=libudev1-udeb
+	dh_makeshlibs --remaining-packages
+
+autoreconf:
+	gtkdocize --copy --docdir docs/
+	intltoolize -f -c
+	autoreconf -f -i
+
+override_dh_autoreconf:
+	dh_autoreconf debian/rules -- autoreconf
+
+override_dh_auto_test:
+ifeq (, $(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+	# some tests hang under fakeroot, so disable fakeroot
+	echo "01234567890123456789012345678901" > build-deb/machine-id
+	env -u LD_PRELOAD SYSTEMD_MACHINE_ID_PATH=$(CURDIR)/build-deb/machine-id \
+		make -C build-deb check || ( \
+		cd build-deb; \
+		for f in test-*.log; do echo "==== $$f ===="; cat $$f; done; \
+		exit 0; )  # replace with 1 to make failures fatal
+endif
+
+%:
+	dh $@ --with autoreconf,gir,python3 --parallel
