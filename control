@@ -99,7 +99,7 @@ Replaces: sysvinit (<< 2.88dsf-44~),
 Pre-Depends: systemd
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         systemd (= ${binary:Version})
+         tinysystemd (= ${binary:Version})
 Description: system and service manager - SysV links
  systemd is a replacement for sysvinit.  It is dependency-based and
  able to read the LSB init script headers in addition to parsing rcN.d

@@ -4,7 +4,7 @@ Another way to build systemd for debian
 Installing
 ----------
 
-+ Current version: ![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-version.png)
++ Current version: ![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-version.png?drop-cache=true)
 
 First, add a repo to your sources:
 
