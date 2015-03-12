@@ -19,7 +19,6 @@ usr/lib/sysctl.d/
 usr/lib/systemd/
 usr/lib/tmpfiles.d/
 usr/share/locale/
-usr/share/man/man1/networkctl.1.gz
 usr/share/man/man1/runservice.1.gz
 usr/share/man/man1/journalctl.1.gz
 usr/share/man/man1/machine-id-commit.1.gz
@@ -29,7 +28,6 @@ usr/share/man/man1/systemd.1.gz
 usr/share/man/man1/busctl.1.gz
 usr/share/man/man1/systemctl.1.gz
 usr/share/man/man1/ask-password.1.gz
-usr/share/man/man1/inhibit.1.gz
 usr/share/man/man1/sd-notify.1.gz
 usr/share/man/man5/
 usr/share/man/man7/
