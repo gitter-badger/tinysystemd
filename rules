@@ -2,7 +2,7 @@
 
 #export DH_VERBOSE=1
 
-DEB_BUILD_OPTIONS="--parallel=32"
+#DEB_BUILD_OPTIONS="--parallel=32"
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 ifneq (,$(findstring stage1,$(DEB_BUILD_PROFILES)))
@@ -105,8 +105,8 @@ override_dh_auto_configure:
 		-- $(CONFFLAGS) $(CONFFLAGS_udeb)
 
 override_dh_auto_build:
-	dh_auto_build -j32 --builddirectory=build-deb
-	dh_auto_build -j32 --builddirectory=build-udeb
+	dh_auto_build --builddirectory=build-deb
+	dh_auto_build --builddirectory=build-udeb
 
 override_dh_auto_install:
 	dh_auto_install --builddirectory=build-deb \
