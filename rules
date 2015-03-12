@@ -134,16 +134,16 @@ override_dh_install:
 	# remove excluded files
 	rm -f debian/install/*/bin/firstboot
 	rm -f debian/install/*/bin/udevadm
-	rm -f debian/install/*/bin/sd-escape
-	rm -f debian/install/*/usr/bin/cgtop
-	rm -f debian/install/*/usr/bin/sd-delta
-	rm -f debian/install/*/usr/bin/sd-path
-	rm -f debian/install/*/usr/bin/cgls
-	rm -f debian/install/*/usr/bin/sd-analyze
-	rm -f debian/install/*/usr/bin/detect-virt
-	rm -f debian/install/*/usr/bin/sd-cat
+	#rm -f debian/install/*/bin/sd-escape
+	#rm -f debian/install/*/usr/bin/cgtop
+	#rm -f debian/install/*/usr/bin/sd-delta
+	#rm -f debian/install/*/usr/bin/sd-path
+	#rm -f debian/install/*/usr/bin/cgls
+	#rm -f debian/install/*/usr/bin/sd-analyze
+	#rm -f debian/install/*/usr/bin/detect-virt
+	#rm -f debian/install/*/usr/bin/sd-cat
 	rm -f debian/install/*/usr/bin/stdio-bridge
-	rm -f debian/install/*/usr/bin/nspawn
+	#rm -f debian/install/*/usr/bin/nspawn
 	rm -f debian/install/*/usr/lib/*/pkgconfig/libsystemd.pc
 	rm -f debian/install/*/usr/lib/*/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
