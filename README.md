@@ -10,12 +10,21 @@ First, add a repo to your sources:
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "8C2C65DE"
     echo "deb http://wasteland.it-the-drote.tk/apps/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/wasteland.it-the-drote.list
-    apt-get update
+    sudo apt-get update
 
-Then remove systemd and install tinysystemd and libsystemd0(note that `systemd-sysv` from my repo is still untested and may break your boot):
+Second, you need to switch to traditional `init` and then reboot using it(otherwise you will get an error):
 
-    apt-get purge systemd
+    sudo apt-get install sysvinit-core #(or sudo apt-get purge systemd-sysv)
+    sudo reboot
+
+Finally, remove `systemd` and install `tinysystemd` and `libsystemd0`:
+
+    sudo apt-get purge systemd
     apt-get install tinysystemd libsystemd0
+
+If you want to boot usnig `tinysystemd` by default, you will need to install `systemd-sysv`:
+
+    sudo apt-get install systemd-sysv
 
 Building
 --------
@@ -62,7 +71,7 @@ For now, systemd-219 works fine with shipping in jessie udev-215 and I don't see
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 
-These tools are not necessary to keep my system up and running. I'll put them into separate package soon.
+These tools are not necessary to keep my system up and running. However, if you want to use them, you may install `tinysystemd-utils` package.
 
 ###Where is systemd-logind, systemd-hostnamed, systemd-timedated, systemd-blowjobd, etc?
 
