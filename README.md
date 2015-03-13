@@ -1,6 +1,8 @@
 # tinysystemd
 Another way to build systemd for debian
 
+**Please, note that tinysystemd is still under heavy testing and may break your boot**
+
 Installing
 ----------
 
