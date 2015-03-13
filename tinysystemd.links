@@ -86,3 +86,6 @@
 
 # Because I hate long filenames for tools
 /bin/systemctl /bin/sdctl
+
+# Some compatibility links
+/lib/systemd/sysctl-bridge /lib/systemd/systemd-sysctl

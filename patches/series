@@ -6,3 +6,4 @@ fixing-acl-for-legacy.conf.patch
 fixing-path-to-initctl.patch
 fixing-program-names-in-makefile.patch
 completion-for-renamed-tools.patch
+fixing-fscheck-program-path.patch

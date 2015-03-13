@@ -33,7 +33,7 @@ usr/share/man/man1/inhibit.1
 usr/share/man/man1/sd-notify.1
 usr/share/man/man5/
 usr/share/man/man7/
-usr/share/man/man8/sd-sysctl.service.8
+usr/share/man/man8/sysctl-bridge.service.8
 usr/share/man/man8/modules-load.8
 usr/share/man/man8/shutdownd.service.8
 usr/share/man/man8/hibernate.service.8
@@ -43,7 +43,7 @@ usr/share/man/man8/shutdownd.socket.8
 usr/share/man/man8/suspend.service.8
 usr/share/man/man8/ask-password-console.path.8
 usr/share/man/man8/ask-password-wall.path.8
-usr/share/man/man8/sd-sysctl.8
+usr/share/man/man8/sysctl-bridge.8
 usr/share/man/man8/socket-proxyd.8
 usr/share/man/man8/quotacheck.8
 usr/share/man/man8/hybrid-sleep.service.8
@@ -64,12 +64,12 @@ usr/share/man/man8/tmpfiles-clean.timer.8
 usr/share/man/man8/halt.service.8
 usr/share/man/man8/remount-fs.service.8
 usr/share/man/man8/gpt-auto-generator.8
-usr/share/man/man8/sd-fsck-root.service.8
+usr/share/man/man8/fscheck-root.service.8
 usr/share/man/man8/user-sessions.service.8
 usr/share/man/man8/tmpfiles-setup-dev.service.8
 usr/share/man/man8/activate.8
 usr/share/man/man8/initctl.service.8
-usr/share/man/man8/sd-fsck.8
+usr/share/man/man8/fscheck.8
 usr/share/man/man8/user-sessions.8
 usr/share/man/man8/sleep.8
 usr/share/man/man8/kexec.service.8
@@ -79,7 +79,7 @@ usr/share/man/man8/hibernate-resume-generator.8
 usr/share/man/man8/poweroff.service.8
 usr/share/man/man8/update-utmp-runlevel.service.8
 usr/share/man/man8/tmpfiles-setup.service.8
-usr/share/man/man8/sd-fsck@.service.8
+usr/share/man/man8/fscheck@.service.8
 usr/share/man/man8/initctl.socket.8
 usr/share/man/man8/getty-generator.8
 usr/share/man/man8/cryptsetup.8

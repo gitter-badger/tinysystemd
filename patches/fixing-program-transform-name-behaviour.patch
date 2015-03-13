@@ -48,7 +48,7 @@ Last-Update: <YYYY-MM-DD>
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@rootlibexecdir@/systemd-sysctl
-+ExecStart=@rootlibexecdir@/sd-sysctl
++ExecStart=@rootlibexecdir@/sysctl-bridge
 --- systemd-219.orig/units/systemd-fsck-root.service.in
 +++ systemd-219/units/systemd-fsck-root.service.in
 @@ -15,6 +15,6 @@ ConditionPathIsReadWrite=!/
@@ -56,7 +56,7 @@ Last-Update: <YYYY-MM-DD>
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@rootlibexecdir@/systemd-fsck
-+ExecStart=@rootlibexecdir@/sd-fsck
++ExecStart=@rootlibexecdir@/fscheck
  StandardOutput=journal+console
  TimeoutSec=0
 --- systemd-219.orig/units/systemd-tmpfiles-setup-dev.service.in
