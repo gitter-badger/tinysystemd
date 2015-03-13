@@ -149,6 +149,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
 	rm -f debian/install/*/usr/share/factory/etc/pam.d/other
 	rm -f debian/install/*/usr/share/factory/etc/pam.d/system-auth
+	rm -f debian/install/*/usr/share/man/man8/pam_systemd.8
 	rm -fr debian/install/*/usr/include/systemd/
 	rm -fr debian/install/*/usr/share/man/man3/
 	# remove udev-related files
@@ -187,6 +188,11 @@ override_dh_install:
 	rm -f debian/install/*/usr/lib/*/libudev.so
 	rm -f debian/install/*/usr/lib/*/pkgconfig/libudev.pc
 	rm -f debian/install/*/usr/share/pkgconfig/udev.pc
+	rm -f debian/install/*/usr/share/man/man8/udevd-kernel.socket.8
+	rm -f debian/install/*/usr/share/man/man8/udevadm.8
+	rm -f debian/install/*/usr/share/man/man8/udevd.service.8
+	rm -f debian/install/*/usr/share/man/man8/udevd-control.socket.8
+	rm -f debian/install/*/usr/share/man/man8/udevd.8
 	rm -fr debian/install/*/lib/udev/hwdb.d/
 	# remove unnecessary / unused files
 	rm -fr debian/install/*/usr/share/man/man3/
