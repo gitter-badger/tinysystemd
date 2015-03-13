@@ -249,13 +249,13 @@ override_dh_install:
 	#	debian/tinysystemd/lib/systemd/
 	# remove duplicates
 	# files shipped by systemd-sysv / sysvinit
-	rm debian/tinysystemd/usr/share/man/man1/init.1
-	rm debian/tinysystemd/usr/share/man/man8/halt.8
-	rm debian/tinysystemd/usr/share/man/man8/poweroff.8
-	rm debian/tinysystemd/usr/share/man/man8/reboot.8
-	rm debian/tinysystemd/usr/share/man/man8/shutdown.8
-	rm debian/tinysystemd/usr/share/man/man8/telinit.8
-	rm debian/tinysystemd/usr/share/man/man8/runlevel.8
+	#rm debian/tinysystemd/usr/share/man/man1/init.1
+	#rm debian/tinysystemd/usr/share/man/man8/halt.8
+	#rm debian/tinysystemd/usr/share/man/man8/poweroff.8
+	#rm debian/tinysystemd/usr/share/man/man8/reboot.8
+	#rm debian/tinysystemd/usr/share/man/man8/shutdown.8
+	#rm debian/tinysystemd/usr/share/man/man8/telinit.8
+	#rm debian/tinysystemd/usr/share/man/man8/runlevel.8
 	# files shipped by libpam-systemd
 	rm debian/tinysystemd/usr/share/man/man8/pam_systemd.8
 	# files shipped by udev
