@@ -149,7 +149,6 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
 	rm -f debian/install/*/usr/share/factory/etc/pam.d/other
 	rm -f debian/install/*/usr/share/factory/etc/pam.d/system-auth
-	rm -f debian/install/*/usr/share/man/man8/pam_systemd.8
 	rm -fr debian/install/*/usr/include/systemd/
 	rm -fr debian/install/*/usr/share/man/man3/
 	# remove udev-related files
