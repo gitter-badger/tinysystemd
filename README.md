@@ -1,12 +1,13 @@
 # tinysystemd
+
+![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-version.png?drop-cache=true)
+
 Another way to build systemd for debian
 
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
 
 Installing
 ----------
-
-+ Current version: ![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-version.png?drop-cache=true)
 
 First, add a repo to your sources:
 
