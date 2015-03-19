@@ -46,6 +46,11 @@ At third, you need to pull this repo as a submodule:
 
     git submodule add https://github.com/Like-all/tinysystemd.git debian
 
+At fourth, you will need to install build dependencies:
+
+    sudo apt-get build-dep systemd
+    sudo apt-get install ruby-md2man #you can get it from my repo
+
 Finally, create the tarball with original source code and run `debuild`:
 
     dh_make --createorig
