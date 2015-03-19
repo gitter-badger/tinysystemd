@@ -103,7 +103,6 @@ override_dh_auto_configure:
 		-- $(CONFFLAGS) $(CONFFLAGS_deb)
 	dh_auto_configure --builddirectory=build-udeb \
 		-- $(CONFFLAGS) $(CONFFLAGS_udeb)
-	md2man-roff debian/manpages/tinysystemd.7.md > debian/manpages/tinysystemd.7
 
 override_dh_auto_build:
 	dh_auto_build --builddirectory=build-deb
@@ -121,7 +120,6 @@ override_dh_auto_clean:
 	rm -rf debian/install/
 	# remove pre-generated man pages so they are rebuilt
 	rm -f man/*.[13578]
-	rm -f debian/manpages/*.7
 	# remove pre-generated rules and unit files so they are rebuilt
 	rm -f rules/99-systemd.rules \
 		units/emergency.service \
@@ -133,6 +131,7 @@ override_dh_auto_clean:
 	rm -f tools/__pycache__/xml_helper.cpython-34.pyc
 
 override_dh_install:
+	md2man-roff debian/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
 	# remove excluded files
 	rm -f debian/install/*/bin/firstboot
 	rm -f debian/install/*/bin/udevadm
