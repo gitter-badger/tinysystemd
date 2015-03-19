@@ -33,6 +33,7 @@ usr/share/man/man1/inhibit.1
 usr/share/man/man1/sd-notify.1
 usr/share/man/man5/
 usr/share/man/man7/
+debian/manpages/tinysystemd.7 usr/share/man/man7/
 usr/share/man/man8/sysctl-bridge.service.8
 usr/share/man/man8/modules-load.8
 usr/share/man/man8/shutdownd.service.8
