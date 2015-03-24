@@ -83,7 +83,7 @@ These tools are not necessary to keep my system up and running. However, if you 
 
 ###Where is systemd-logind, systemd-hostnamed, systemd-timedated, systemd-blowjobd, etc?
 
-Why did you came there if you're happy with all of these tools that already shipped with standard systemd package in Debian? Go away and jerk off your shiny new GNOME somewhere else.
+Why did you came here if you're happy with all of these tools that already shipped with standard systemd package in Debian? Go away and jerk off your shiny new GNOME somewhere else.
 
 ###Why did you rename all of the binaries?
 
