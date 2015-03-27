@@ -96,3 +96,4 @@ usr/share/man/man8/efi-boot-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
 usr/share/man/man8/remount-fs.8
+usr/share/man/man8/networking.service.8
