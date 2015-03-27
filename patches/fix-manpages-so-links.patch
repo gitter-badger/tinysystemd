@@ -1,0 +1,121 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ systemd (219-1) unstable; urgency=low
+ .
+   * Switching to v219
+Author: Azer Abdullaev (Like All) <like-all@yandex.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- systemd-219.orig/Makefile-man.am
++++ systemd-219/Makefile-man.am
+@@ -314,41 +314,41 @@ man/sd_notifyf.3: man/sd_notify.3
+ man/sd_pid_notify.3: man/sd_notify.3
+ man/sd_pid_notify_with_fds.3: man/sd_notify.3
+ man/sd_pid_notifyf.3: man/sd_notify.3
+-man/sleep.conf.d.5: man/systemd-sleep.conf.5
+-man/system.conf.d.5: man/systemd-system.conf.5
+-man/systemd-ask-password-console.path.8: man/systemd-ask-password-console.service.8
+-man/systemd-ask-password-wall.path.8: man/systemd-ask-password-console.service.8
+-man/systemd-ask-password-wall.service.8: man/systemd-ask-password-console.service.8
+-man/systemd-fsck-root.service.8: man/systemd-fsck@.service.8
+-man/systemd-fsck.8: man/systemd-fsck@.service.8
+-man/systemd-hibernate-resume.8: man/systemd-hibernate-resume@.service.8
+-man/systemd-hibernate.service.8: man/systemd-suspend.service.8
+-man/systemd-hybrid-sleep.service.8: man/systemd-suspend.service.8
+-man/systemd-initctl.8: man/systemd-initctl.service.8
+-man/systemd-initctl.socket.8: man/systemd-initctl.service.8
+-man/systemd-journald-dev-log.socket.8: man/systemd-journald.service.8
+-man/systemd-journald.8: man/systemd-journald.service.8
+-man/systemd-journald.socket.8: man/systemd-journald.service.8
+-man/systemd-kexec.service.8: man/systemd-halt.service.8
+-man/systemd-poweroff.service.8: man/systemd-halt.service.8
+-man/systemd-reboot.service.8: man/systemd-halt.service.8
+-man/systemd-remount-fs.8: man/systemd-remount-fs.service.8
+-man/systemd-shutdown.8: man/systemd-halt.service.8
+-man/systemd-shutdownd.8: man/systemd-shutdownd.service.8
+-man/systemd-shutdownd.socket.8: man/systemd-shutdownd.service.8
+-man/systemd-sleep.8: man/systemd-suspend.service.8
+-man/systemd-sysctl.8: man/systemd-sysctl.service.8
+-man/systemd-sysusers.service.8: man/systemd-sysusers.8
+-man/systemd-tmpfiles-clean.service.8: man/systemd-tmpfiles.8
+-man/systemd-tmpfiles-clean.timer.8: man/systemd-tmpfiles.8
+-man/systemd-tmpfiles-setup-dev.service.8: man/systemd-tmpfiles.8
+-man/systemd-tmpfiles-setup.service.8: man/systemd-tmpfiles.8
++man/sleep.conf.d.5: man/sleep.conf.5
++man/system.conf.d.5: man/system.conf.5
++man/systemd-ask-password-console.path.8: man/ask-password-console.service.8
++man/systemd-ask-password-wall.path.8: man/ask-password-console.service.8
++man/systemd-ask-password-wall.service.8: man/ask-password-console.service.8
++man/systemd-fsck-root.service.8: man/fscheck@.service.8
++man/systemd-fsck.8: man/fscheck@.service.8
++man/systemd-hibernate-resume.8: man/hibernate-resume@.service.8
++man/systemd-hibernate.service.8: man/suspend.service.8
++man/systemd-hybrid-sleep.service.8: man/suspend.service.8
++man/systemd-initctl.8: man/initctl.service.8
++man/systemd-initctl.socket.8: man/initctl.service.8
++man/systemd-journald-dev-log.socket.8: man/journald.service.8
++man/systemd-journald.8: man/journald.service.8
++man/systemd-journald.socket.8: man/journald.service.8
++man/systemd-kexec.service.8: man/halt.service.8
++man/systemd-poweroff.service.8: man/halt.service.8
++man/systemd-reboot.service.8: man/halt.service.8
++man/systemd-remount-fs.8: man/remount-fs.service.8
++man/systemd-shutdown.8: man/halt.service.8
++man/systemd-shutdownd.8: man/shutdownd.service.8
++man/systemd-shutdownd.socket.8: man/shutdownd.service.8
++man/systemd-sleep.8: man/suspend.service.8
++man/systemd-sysctl.8: man/sysctl-bridge.service.8
++man/systemd-sysusers.service.8: man/sysusers.8
++man/systemd-tmpfiles-clean.service.8: man/tmpfiles.8
++man/systemd-tmpfiles-clean.timer.8: man/tmpfiles.8
++man/systemd-tmpfiles-setup-dev.service.8: man/tmpfiles.8
++man/systemd-tmpfiles-setup.service.8: man/tmpfiles.8
+ man/systemd-udevd-control.socket.8: man/systemd-udevd.service.8
+ man/systemd-udevd-kernel.socket.8: man/systemd-udevd.service.8
+ man/systemd-udevd.8: man/systemd-udevd.service.8
+-man/systemd-update-done.8: man/systemd-update-done.service.8
+-man/systemd-user.conf.5: man/systemd-system.conf.5
+-man/user.conf.d.5: man/systemd-system.conf.5
++man/systemd-update-done.8: man/update-done.service.8
++man/systemd-user.conf.5: man/system.conf.5
++man/user.conf.d.5: man/system.conf.5
+ man/SD_ALERT.html: man/sd-daemon.html
+ 	$(html-alias)
+ 
+@@ -1322,7 +1322,7 @@ MANPAGES += \
+ 	man/systemd-cryptsetup@.service.8
+ MANPAGES_ALIAS += \
+ 	man/systemd-cryptsetup.8
+-man/systemd-cryptsetup.8: man/systemd-cryptsetup@.service.8
++man/systemd-cryptsetup.8: man/cryptsetup@.service.8
+ man/systemd-cryptsetup.html: man/systemd-cryptsetup@.service.html
+ 	$(html-alias)
+ 
+@@ -1607,8 +1607,8 @@ MANPAGES += \
+ MANPAGES_ALIAS += \
+ 	man/systemd-update-utmp-runlevel.service.8 \
+ 	man/systemd-update-utmp.8
+-man/systemd-update-utmp-runlevel.service.8: man/systemd-update-utmp.service.8
+-man/systemd-update-utmp.8: man/systemd-update-utmp.service.8
++man/systemd-update-utmp-runlevel.service.8: man/update-utmp.service.8
++man/systemd-update-utmp.8: man/update-utmp.service.8
+ man/systemd-update-utmp-runlevel.service.html: man/systemd-update-utmp.service.html
+ 	$(html-alias)
+ 
