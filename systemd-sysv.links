@@ -5,3 +5,4 @@
 /bin/systemctl /sbin/poweroff
 /bin/systemctl /sbin/reboot
 /bin/systemctl /sbin/halt
+/usr/share/man/man1/init.1.gz /usr/share/man/man1/systemd.1.gz
