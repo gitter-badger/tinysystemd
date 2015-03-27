@@ -159,7 +159,7 @@ Priority: extra
 Pre-Depends: systemd
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         tinysystemd (= ${binary:Version})
+         tinysystemd-utils (= ${binary:Version})
 Description: system and service manager - additional tools
  systemd is a replacement for sysvinit.  It is dependency-based and
  able to read the LSB init script headers in addition to parsing rcN.d
