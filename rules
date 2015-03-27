@@ -132,6 +132,8 @@ override_dh_auto_clean:
 
 override_dh_install:
 	md2man-roff debian/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
+	md2man-roff debian/manpages/tinysystemd-compat.7.md > debian/install/deb/usr/share/man/man7/tinysystemd-compat.7
+	md2man-roff debian/manpages/networking.service.8.md > debian/install/deb/usr/share/man/man8/networking.service.8
 	# remove excluded files
 	rm -f debian/install/*/bin/firstboot
 	rm -f debian/install/*/bin/udevadm
