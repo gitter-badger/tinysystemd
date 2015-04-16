@@ -101,6 +101,7 @@ Pre-Depends: systemd
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          tinysystemd (= ${binary:Version})
+Provides: sysvinit-core
 Description: system and service manager - SysV links
  systemd is a replacement for sysvinit.  It is dependency-based and
  able to read the LSB init script headers in addition to parsing rcN.d
