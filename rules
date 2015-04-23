@@ -48,7 +48,6 @@ CONFFLAGS = \
 	--disable-timesyncd \
 	--disable-hwdb \
 	--disable-localed \
-	--disable-polkit \
 	--disable-resolved \
 	--disable-networkd \
 	--disable-multi-seat-x \
