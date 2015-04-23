@@ -4,6 +4,8 @@
 
 Another way to build systemd for debian
 
+#### man 7 tinysystemd
+
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
 
 Installing
@@ -102,7 +104,9 @@ Because that ugly `systemd-` prefix breaks my shell completion. For example, if 
 
 Instead of that mess, I just invoke `runservice`. That's easy.
 
-And no, I don't want to make symlink-spaghetti in my package.
+Please, read `man 7 tinysystemd` if you want to read about the new naming scheme.
+
+And finally, if you **really** want to get some compatibility, you may install `tinysystemd-compat` and `tinysystemd-utils-compat` packages.
 
 ###What about graphical desktop?
 
