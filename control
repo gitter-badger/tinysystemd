@@ -88,6 +88,17 @@ Depends: ${misc:Depends}
 Description: systemd utility library
  The libsystemd0 library provides interfaces to various systemd components.
 
+Package: systemd-logind
+Architecture: linux-any
+Section: admin
+Priority: optional
+Pre-depends: systemd
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         tinysystemd (= ${binary:Version})
+Description: system and service manager - User sessions control daemon
+ This package provides systemd-logind, that basically ships with systemd.
+
 Package: systemd-sysv
 Architecture: linux-any
 Section: admin
