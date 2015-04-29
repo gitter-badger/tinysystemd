@@ -1,0 +1,12 @@
+bin/inhibit
+bin/loginctl
+lib/systemd/logind
+lib/systemd/system/systemd-logind.service
+lib/udev/rules.d/71-seat.rules
+lib/udev/rules.d/70-power-switch.rules
+lib/udev/rules.d/70-uaccess.rules
+lib/udev/rules.d/73-seat-late.rules
+usr/share/polkit-1/actions/org.freedesktop.login1.policy
+usr/share/man/man8/logind.8
+usr/share/man/man8/logind.service.8
+usr/share/man/man1/loginctl.1

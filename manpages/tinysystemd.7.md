@@ -46,6 +46,7 @@ As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of
     systemd-fsck                    -> fscheck
     systemd-initctl                 -> initctl
     systemd-journald                -> journald
+    systemd-logind                  -> logind
     systemd-machine-id-commit       -> machine-id-commit
     systemd-modules-load            -> modules-load
     systemd-quotacheck              -> quotacheck
