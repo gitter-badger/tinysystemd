@@ -83,7 +83,6 @@ lib/systemd/system/systemd-ask-password-console.path
 lib/systemd/system/reboot.target
 lib/systemd/system/syslog.socket
 lib/systemd/system/systemd-tmpfiles-clean.service
-lib/systemd/system/debian-fixup.service
 lib/systemd/system/halt.target
 lib/systemd/system/systemd-journald-audit.socket
 lib/systemd/system/shutdown.target
@@ -122,7 +121,6 @@ lib/systemd/shutdown
 lib/systemd/remount-fs
 lib/systemd/activate
 lib/systemd/bus-proxyd
-lib/systemd/debian-fixup
 lib/systemd/update-done
 lib/systemd/quotacheck
 lib/systemd/modules-load
