@@ -129,12 +129,12 @@ fi
 
 # Allow login if no logind implementations found
 if ! dbus-send --type=method_call --print-reply --system --dest=org.freedesktop.login1 / org.freedesktop.DBus.Peer.Ping 2>/dev/null; then
-    systemctl enable /lib/systemd/system/allow-login.service
+    _systemctl enable /lib/systemd/system/allow-login.service
 fi
 
 # Enable networking fixup
 
-systemctl enable /lib/systemd/system/networking.service
+_systemctl enable /lib/systemd/system/networking.service
 
 # Re-run systemctl enable for any service that was enabled when preinst was run.
 if dpkg --compare-versions "$2" ge "204"; then

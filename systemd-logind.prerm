@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+sdctl stop systemd-logind.service
+sdctl disable /lib/systemd/system/systemd-logind.service
+sdctl enable /lib/systemd/system/allow-login.service
+
+#DEBHELPER#
