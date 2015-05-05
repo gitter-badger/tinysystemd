@@ -12,7 +12,6 @@ lib/systemd/activate
 lib/systemd/bus-proxyd
 lib/systemd/cgroups-agent
 lib/systemd/cryptsetup
-lib/systemd/debian-fixup
 lib/systemd/fscheck
 lib/systemd/initctl
 lib/systemd/journald
