@@ -28,7 +28,6 @@ lib/systemd/system/systemd-journal-flush.service
 lib/systemd/system/console-getty.service
 lib/systemd/system/rpcbind.target
 lib/systemd/system/sysinit.target
-lib/systemd/system/ifup@.service
 lib/systemd/system/systemd-initctl.socket
 lib/systemd/system/suspend.target
 lib/systemd/system/timers.target
@@ -69,7 +68,6 @@ lib/systemd/system/rescue.target
 lib/systemd/system/nss-user-lookup.target
 lib/systemd/system/network.target
 lib/systemd/system/tmp.mount
-lib/systemd/system/allow-login.service
 lib/systemd/system/kmod-static-nodes.service
 lib/systemd/system/systemd-hwdb-update.service
 lib/systemd/system/time-sync.target
@@ -95,7 +93,6 @@ lib/systemd/system/syslog.socket
 lib/systemd/system/systemd-tmpfiles-clean.service
 lib/systemd/system/debian-fixup.service
 lib/systemd/system/halt.target
-lib/systemd/system/networking.service
 lib/systemd/system/timers.target.wants
 lib/systemd/system/runlevel1.target.wants
 lib/systemd/system/systemd-journald-audit.socket
