@@ -116,6 +116,16 @@ lib/systemd/system/system.slice
 lib/systemd/system/halt-local.service
 lib/systemd/system/remote-fs-pre.target
 lib/systemd/system/graphical.target
+lib/systemd/system/default.target
+lib/systemd/system/runlevel0.target
+lib/systemd/system/runlevel1.target
+lib/systemd/system/runlevel2.target
+lib/systemd/system/runlevel3.target
+lib/systemd/system/runlevel4.target
+lib/systemd/system/runlevel5.target
+lib/systemd/system/runlevel6.target
+lib/systemd/system/ctrl-alt-del.target
+lib/systemd/system/autovt@.service
 lib/systemd/system-preset/90-systemd.preset
 lib/systemd/system/local-fs.target.wants/
 lib/systemd/system/multi-user.target.wants/
