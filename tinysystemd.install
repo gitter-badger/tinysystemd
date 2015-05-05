@@ -6,12 +6,12 @@ bin/tty-ask-password-agent
 bin/ask-password
 bin/machine-id-setup
 bin/tmpfiles
-lib/systemd/
 lib/systemd/ac-power
 lib/systemd/activate
 lib/systemd/bus-proxyd
 lib/systemd/cgroups-agent
 lib/systemd/cryptsetup
+lib/systemd/debian-fixup
 lib/systemd/fscheck
 lib/systemd/initctl
 lib/systemd/journald
