@@ -8,3 +8,4 @@ fixing-program-names-in-makefile.patch
 completion-for-renamed-tools.patch
 fixing-fscheck-program-path.patch
 fix-logind-executable-path
+fix-user-sessions-executable-path.patch

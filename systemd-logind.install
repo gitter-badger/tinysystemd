@@ -4,6 +4,7 @@ lib/systemd/logind
 lib/systemd/user-sessions
 lib/systemd/system/systemd-logind.service
 lib/systemd/system/dbus-org.freedesktop.login1.service
+lib/systemd/system/systemd-user-sessions.service
 lib/systemd/system/user.slice
 lib/udev/rules.d/71-seat.rules
 lib/udev/rules.d/70-power-switch.rules
