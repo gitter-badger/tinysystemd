@@ -119,15 +119,11 @@ lib/systemd/system/graphical.target
 lib/systemd/system-preset/90-systemd.preset
 lib/systemd/system/local-fs.target.wants/
 lib/systemd/system/multi-user.target.wants/
-lib/systemd/system/poweroff.target.wants/
-lib/systemd/system/reboot.target.wants/
-lib/systemd/system/rescue.target.wants/
 lib/systemd/system/runlevel1.target.wants/
 lib/systemd/system/runlevel2.target.wants/
 lib/systemd/system/runlevel3.target.wants/
 lib/systemd/system/runlevel4.target.wants/
 lib/systemd/system/runlevel5.target.wants/
-lib/systemd/system/shutdown.target.wants/
 lib/systemd/system/sockets.target.wants/
 lib/systemd/system/sysinit.target.wants/
 lib/systemd/system/timers.target.wants/
