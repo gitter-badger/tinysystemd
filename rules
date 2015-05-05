@@ -215,6 +215,7 @@ override_dh_install:
 	rm -f debian/install/*/lib/udev/rules.d/60-keyboard.rules
 	rm -f debian/install/*/lib/udev/rules.d/80-drivers.rules
 	rm -f debian/install/*/lib/udev/rules.d/70-touchpad.rules
+	rm -f debian/install/*/lib/udev/rules.d/70-power-switch.rules
 	rm -f debian/install/*/lib/udev/rules.d/75-probe_mtd.rules
 	rm -f debian/install/*/usr/include/libudev.h
 	rm -f debian/install/*/usr/lib/*/libudev.so
