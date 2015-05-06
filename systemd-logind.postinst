@@ -2,8 +2,7 @@
 
 set -e
 
-sdctl enable /lib/systemd/system/systemd-logind.service
-sdctl disable /lib/systemd/system/allow-login.service
-sdctl start systemd-logind.service
+deb-systemd-invoke disable /lib/systemd/system/allow-login.service
+deb-systemd-invoke start systemd-logind.service
 
 #DEBHELPER#
