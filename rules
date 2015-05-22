@@ -178,6 +178,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/bin/stdio-bridge
 	rm -f debian/install/*/usr/lib/*/pkgconfig/libsystemd.pc
 	rm -f debian/install/*/usr/lib/*/pkgconfig/systemd.pc
+	rm -f debian/install/*/usr/share/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
 	rm -fr debian/install/*/usr/include/systemd/
 	rm -fr debian/install/*/usr/share/man/man3/
@@ -189,11 +190,14 @@ override_dh_install:
 	rm -f debian/install/*/lib/udev/scsi_id
 	rm -f debian/install/*/lib/udev/cdrom_id
 	rm -f debian/install/*/lib/udev/collect
-	rm -f debian/install/*/lib/*/libudev.so.1.6.2
+	rm -f debian/install/*/lib/*/libudev.so.1.6.3
 	rm -f debian/install/*/lib/*/libudev.so.1
 	rm -f debian/install/*/lib/systemd/system/systemd-udev*
 	rm -f debian/install/*/lib/systemd/system/*.target.wants/systemd-udev*
 	rm -f debian/install/*/lib/systemd/udevd
+	rm -f debian/install/*/lib/udev/rules.d/60-serial.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-evdev.rules
+	rm -f debian/install/*/lib/udev/rules.d/60-block.rules
 	rm -f debian/install/*/lib/udev/rules.d/60-persistent-alsa.rules
 	rm -f debian/install/*/lib/udev/rules.d/60-persistent-serial.rules
 	rm -f debian/install/*/lib/udev/rules.d/60-cdrom_id.rules

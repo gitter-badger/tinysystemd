@@ -61,6 +61,7 @@ lib/systemd/system/rescue.target
 lib/systemd/system/nss-user-lookup.target
 lib/systemd/system/network.target
 lib/systemd/system/tmp.mount
+lib/systemd/system/var-lib-machines.mount
 lib/systemd/system/kmod-static-nodes.service
 lib/systemd/system/systemd-hwdb-update.service
 lib/systemd/system/time-sync.target
@@ -135,6 +136,8 @@ lib/systemd/system/runlevel5.target.wants/
 lib/systemd/system/sockets.target.wants/
 lib/systemd/system/sysinit.target.wants/
 lib/systemd/system/timers.target.wants/
+lib/systemd/system/rescue.target.wants/
+lib/systemd/system/graphical.target.wants/
 lib/systemd/shutdown
 lib/systemd/remount-fs
 lib/systemd/activate
