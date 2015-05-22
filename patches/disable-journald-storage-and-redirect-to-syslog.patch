@@ -5,9 +5,9 @@ Description: <short summary of the patch>
  information below has been extracted from the changelog. Adjust it or drop
  it.
  .
- systemd (218-1) unstable; urgency=low
+ systemd (219-1) unstable; urgency=low
  .
-   * First build tryout
+   * Switching to v219
 Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 
 ---
@@ -17,24 +17,24 @@ are templates for supplementary fields that you might want to add:
 
 Origin: <vendor|upstream|other>, <url of original patch>
 Bug: <url in upstream bugtracker>
-Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
 Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
 Forwarded: <no|not-needed|url proving that it has been forwarded>
 Reviewed-By: <name and email of someone who approved the patch>
 Last-Update: <YYYY-MM-DD>
 
---- systemd-218.orig/src/journal/journald.conf
-+++ systemd-218/src/journal/journald.conf
-@@ -11,7 +11,7 @@
- # See journald.conf(5) for details
-
+--- systemd-219.orig/src/journal/journald.conf
++++ systemd-219/src/journal/journald.conf
+@@ -12,7 +12,7 @@
+ # See journald.conf(5) for details.
+ 
  [Journal]
 -#Storage=auto
 +Storage=none
  #Compress=yes
  #Seal=yes
  #SplitMode=uid
-@@ -26,7 +26,7 @@
+@@ -27,7 +27,7 @@
  #RuntimeMaxFileSize=
  #MaxRetentionSec=
  #MaxFileSec=1month

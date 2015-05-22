@@ -17,7 +17,7 @@ are templates for supplementary fields that you might want to add:
 
 Origin: <vendor|upstream|other>, <url of original patch>
 Bug: <url in upstream bugtracker>
-Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
 Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
 Forwarded: <no|not-needed|url proving that it has been forwarded>
 Reviewed-By: <name and email of someone who approved the patch>
@@ -34,7 +34,7 @@ Last-Update: <YYYY-MM-DD>
 +a+ /run/log/journal/%m - - - - d:group:adm:r-x
 +A+ /run/log/journal/%m - - - - group:adm:r-x
  '')m4_dnl
-
+ 
  z /var/log/journal 2755 root systemd-journal - -
  z /var/log/journal/%m 2755 root systemd-journal - -
  m4_ifdef(`HAVE_ACL',``
@@ -43,5 +43,5 @@ Last-Update: <YYYY-MM-DD>
 +a+ /var/log/journal/%m - - - - d:group:adm:r-x
 +A+ /var/log/journal/%m - - - - group:adm:r-x
  '')m4_dnl
-
+ 
  d /var/lib/systemd 0755 root root -

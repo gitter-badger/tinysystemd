@@ -1,11 +1,4 @@
 disable-journald-storage-and-redirect-to-syslog.patch
-fixing-program-transform-name-behaviour.patch
-fixing-forgotten-units-after-program-name-transforming.patch
-fixing-tmpfiles-acl.patch
 fixing-acl-for-legacy.conf.patch
-fixing-path-to-initctl.patch
-fixing-program-names-in-makefile.patch
-completion-for-renamed-tools.patch
-fixing-fscheck-program-path.patch
-fix-logind-executable-path
-fix-user-sessions-executable-path.patch
+fixing-program-transform-name-behaviour.patch
+fixing-tmpfiles-acl.patch
