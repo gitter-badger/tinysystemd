@@ -7,6 +7,7 @@ Another way to build systemd for debian
 #### man 7 tinysystemd
 
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
+**Warning: tinysystemd is now moving to v220. Please use the latest stable version.**
 
 Installing
 ----------
