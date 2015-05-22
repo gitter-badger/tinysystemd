@@ -31,7 +31,6 @@ lib/systemd/system/systemd-initctl.socket
 lib/systemd/system/suspend.target
 lib/systemd/system/timers.target
 lib/systemd/system/systemd-fsck@.service
-lib/systemd/system/systemd-shutdownd.service
 lib/systemd/system/systemd-suspend.service
 lib/systemd/system/systemd-reboot.service
 lib/systemd/system/serial-getty@.service
@@ -98,7 +97,6 @@ lib/systemd/system/systemd-update-utmp.service
 lib/systemd/system/poweroff.target
 lib/systemd/system/paths.target
 lib/systemd/system/printer.target
-lib/systemd/system/systemd-shutdownd.socket
 lib/systemd/system/initrd.target
 lib/systemd/system/debug-shell.service
 lib/systemd/system/initrd-cleanup.service
@@ -153,7 +151,6 @@ lib/systemd/system-generators/debug-generator
 lib/systemd/system-generators/rc-local-generator
 lib/systemd/system-generators/sysv-generator
 lib/systemd/fscheck
-lib/systemd/shutdownd
 lib/systemd/machine-id-commit
 lib/systemd/network
 lib/systemd/network/99-default.link
@@ -194,7 +191,6 @@ usr/share/man/man1/sd-notify.1
 usr/share/man/man5/
 usr/share/man/man7/
 usr/share/man/man8/sysctl-bridge.service.8
-usr/share/man/man8/shutdownd.service.8
 usr/share/man/man8/update-done.service.8
 usr/share/man/man8/hibernate-resume@.service.8
 usr/share/man/man8/suspend.service.8
