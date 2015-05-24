@@ -3,6 +3,6 @@ export DEBEMAIL="like-all@yandex.com"
 
 NAME="systemd"
 VERSION="220"
-SUFFIX="1"
+SUFFIX="2"
 FLAVOURS="jessie"
-REBUILD="1"
+REBUILD="0"

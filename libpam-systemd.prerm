@@ -1,4 +1,6 @@
-et -e
+#!/bin/sh
+
+set -e
 
 # pam-auth-update --remove removes the named profile from the active config.
 # It arguably should be called during deconfigure as well, but deconfigure
