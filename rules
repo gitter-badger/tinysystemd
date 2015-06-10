@@ -273,6 +273,8 @@ override_dh_install:
 		debian/units/ifup@.service \
 		debian/units/allow-login.service \
 		debian/units/networking.service \
+		debian/units/network-fuckup.service \
+		debian/units/ssh-fuckup.service \
 		debian/tinysystemd/lib/systemd/system/
 	#install --mode=644 debian/extra/udev-finish.service \
 	#	debian/udev/lib/systemd/system/

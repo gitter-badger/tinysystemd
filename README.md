@@ -7,7 +7,6 @@ Another way to build systemd for debian
 #### man 7 tinysystemd
 
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
-**Warning: tinysystemd is now moving to v220. Please use the latest stable version.**
 
 Installing
 ----------
@@ -15,7 +14,7 @@ Installing
 First, add a repo to your sources:
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "8C2C65DE"
-    echo "deb http://wasteland.it-the-drote.tk/apps/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/wasteland.it-the-drote.list
+    echo "deb http://wasteland.ml/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/wasteland.it-the-drote.list
     sudo apt-get update
 
 Second, you need to switch to traditional `init` and then reboot using it(otherwise you will get an error):
@@ -39,11 +38,11 @@ At first, you need to clone vanilla `systemd` from freedesktop repo:
 
     git clone http://anongit.freedesktop.org/git/systemd/systemd.git
 
-At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v219:
+At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v220:
 
-    mv systemd/ systemd-219
-    cd systemd-219/
-    git reset --hard v219
+    mv systemd/ systemd-220
+    cd systemd-220/
+    git reset --hard v220
 
 At third, you need to pull this repo as a submodule:
 
@@ -66,11 +65,13 @@ PAQ(Preventively Answered Questions)
 
 ###Why?
 
-Because fuck you, that's why.
+Because I fed up with all of these wonders provided by the `systemd` project. I only want to use service manager from it.
 
-###Seriously, why?
+There are some additional services provided by `tinysystemd`:
 
-Because I don't need all of these wonders provided by `systemd` project. I only want to use service manager from it. I also turned off binary logging.
++ *networking.service* - replacement for */etc/init.d/networking* script from *ifupdown* package. Although systemd provides SysV compatibility layer, */etc/init.d/networking* does not work properly, so I've decided to make a "native" service unit for setting up the network.
++ *network-fuckup.service* - brings up network in the rescue mode.
++ *ssh-fuckup.service* - brings up ssh in the rescue mode. Starts after *network-fuckup.service*. Doesn't start if *openssh-server* is not installed.
 
 ###What about uselessd?
 
@@ -78,7 +79,7 @@ After ownership change in January 2015 uselessd looks like abandonware. I think 
 
 ###Where is udev?
 
-For now, systemd-219 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
+For now, systemd-220 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 
@@ -86,7 +87,7 @@ These tools are not necessary to keep my system up and running. However, if you 
 
 ###Where is systemd-logind, systemd-hostnamed, systemd-timedated, systemd-blowjobd, etc?
 
-Why did you came here if you're happy with all of these tools that already shipped with standard systemd package in Debian? Go away and jerk off your shiny new GNOME somewhere else.
+For some reasons(I really don't know why) few essential packages, such as `qemu-kvm`, depend on `policykit-1` in jessie. And `policykit-1` depends on `libpam-systemd`, which depends on `systemd` that contains `systemd-logind`. I'm really tired of that shit, but I also want to provide a working solution for current Debian release, so I've decided to move `systemd-logind` into separated package. What about other fancy daemons? I don't need them at all. Modern desktop environments *are not supported by `tinysystemd`*.
 
 ###Why did you rename all of the binaries?
 

@@ -4,3 +4,5 @@ set -e
 
 deb-systemd-invoke disable /lib/systemd/system/allow-login.service
 deb-systemd-invoke start systemd-logind.service
+
+#DEBHELPER#

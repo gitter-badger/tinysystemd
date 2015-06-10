@@ -1,0 +1,11 @@
+[Unit]
+Description=Bring up network in the rescue mode
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl start --job-mode=ignore-requirements networking.service
+RemainAfterExit=yes
+
+[Install]
+WantedBy=rescue.target
+WantedBy=emergency.target

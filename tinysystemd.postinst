@@ -136,6 +136,10 @@ fi
 
 _systemctl enable /lib/systemd/system/networking.service
 
+# Enable fuckup services
+_systemctl enable /lib/systemd/system/network-fuckup.service
+_systemctl enable /lib/systemd/system/ssh-fuckup.service
+
 # Re-run systemctl enable for any service that was enabled when preinst was run.
 if dpkg --compare-versions "$2" ge "204"; then
     while read UNIT ; do

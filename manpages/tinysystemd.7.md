@@ -1,4 +1,4 @@
-# TINYSYSTEMD 7 2015-03-19 219
+# TINYSYSTEMD 7 2015-06-10 220
 
 ## NAME
 
@@ -21,7 +21,11 @@ tinysystemd - another way to build systemd for debian
 
 ## SERVICES
 
-**tinysystemd** provides some essential for working operating systems services. For now, this is only the *networking.service* that replaces */etc/init.d/networking* script from *ifupdown* package. Although systemd provides SysV compatibility layer, */etc/init.d/networking* does not work properly, so I've decided to make a "native" service unit for setting up the network.
+**tinysystemd** provides some essential for working operating systems services: 
+
++ *networking.service* - replacement for */etc/init.d/networking* script from *ifupdown* package. Although systemd provides SysV compatibility layer, */etc/init.d/networking* does not work properly, so I've decided to make a "native" service unit for setting up the network.
++ *network-fuckup.service* - brings up network in the rescue mode.
++ *ssh-fuckup.service* - brings up ssh in the rescue mode. Starts after *network-fuckup.service*. Doesn't start if *openssh-server* is not installed.
 
 ## RENAMINGS
 
@@ -53,7 +57,6 @@ As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of
     systemd-remount-fs              -> remount-fs
     systemd-reply-password          -> reply-password
     systemd-shutdown                -> shutdown
-    systemd-shutdownd               -> shutdownd
     systemd-sleep                   -> sleep
     systemd-socket-proxyd           -> socket-proxyd
     systemd-sysctl                  -> sysctl-bridge

@@ -1,0 +1,13 @@
+[Unit]
+Description=Bring up ssh in the rescue mode
+ConditionFileIsExecutable=/usr/sbin/sshd
+After=network-fuckup.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl start --job-mode=ignore-requirements ssh.service
+RemainAfterExit=yes
+
+[Install]
+WantedBy=rescue.target
+WantedBy=emergency.target
