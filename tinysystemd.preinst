@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -d /tmp/systemd ] && ! [ -d /run/systemd ] ; then
+    mv /tmp/systemd /run
+fi
+
 if [ "$1" = "install" ] || [ "$1" = "upgrade" ] && [ -n "$2" ] && dpkg --compare-versions "$2" lt "44-3"; then
     rm -f /lib/lsb/init-functions
     dpkg-divert --remove --package systemd --rename \
