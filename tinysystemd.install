@@ -1,6 +1,9 @@
 etc/systemd/system.conf
 etc/systemd/journald.conf
 etc/systemd/user.conf
+etc/dbus-1/system.d/org.freedesktop.systemd1.conf
+etc/pam.d/systemd-user
+etc/xdg/systemd/user
 bin/systemctl
 bin/journalctl
 bin/sd-notify

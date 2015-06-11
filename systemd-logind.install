@@ -1,6 +1,7 @@
 bin/inhibit
 bin/loginctl
 etc/systemd/logind.conf
+etc/dbus-1/system.d/org.freedesktop.login1.conf
 lib/systemd/logind
 lib/systemd/user-sessions
 lib/systemd/system/systemd-logind.service
