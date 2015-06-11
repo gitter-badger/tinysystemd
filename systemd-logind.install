@@ -1,5 +1,6 @@
 bin/inhibit
 bin/loginctl
+etc/systemd/logind.conf
 lib/systemd/logind
 lib/systemd/user-sessions
 lib/systemd/system/systemd-logind.service

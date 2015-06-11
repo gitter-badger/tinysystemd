@@ -128,7 +128,7 @@ if dpkg --compare-versions "$2" lt "214-1"; then
 fi
 
 # Allow login if no logind implementations found
-if ! dbus-send --type=method_call --print-reply --system --dest=org.freedesktop.login1 / org.freedesktop.DBus.Peer.Ping 2>/dev/null; then
+if ! [ -f /usr/share/polkit-1/actions/org.freedesktop.login1.policy ]; then
     _systemctl enable /lib/systemd/system/allow-login.service
 fi
 

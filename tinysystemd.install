@@ -1,4 +1,6 @@
-etc/
+etc/systemd/system.conf
+etc/systemd/journald.conf
+etc/systemd/user.conf
 bin/systemctl
 bin/journalctl
 bin/sd-notify
