@@ -8,6 +8,8 @@ Another way to build systemd for debian
 
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
 
+**Systemd v221 released few days ago and requires swapon(8) from util-linux >= 2.26, which is absent in Jessie. I'll make backport as soon as I can. Shit...**
+
 Installing
 ----------
 
