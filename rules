@@ -49,6 +49,7 @@ CONFFLAGS = \
 	--disable-localed \
 	--disable-resolved \
 	--disable-networkd \
+	--disable-gtk-doc \
 	--disable-multi-seat-x \
 	--program-transform-name='s/systemd-sysctl/sysctl-bridge/;s/systemd-fsck/fscheck/;s/systemd-analyze/sd-analyze/;s/systemd-escape/sd-escape/;s/systemd-notify/sd-notify/;s/systemd-cat/sd-cat/;s/systemd-delta/sd-delta/;s/systemd-path/sd-path/;s/systemd-run/runservice/;s/systemd-//' \
 	--with-rc-local-script-path-start=/etc/rc.local
@@ -319,7 +320,6 @@ override_dh_makeshlibs:
 	dh_makeshlibs --remaining-packages
 
 autoreconf:
-	gtkdocize --copy --docdir docs/
 	intltoolize -f -c
 	autoreconf -f -i
 
