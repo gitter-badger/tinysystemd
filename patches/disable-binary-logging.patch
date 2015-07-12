@@ -1,0 +1,23 @@
+Description: disable binary logging in journald
+Author: Azer Abdullaev (Like All) <like-all@yandex.com>
+
+--- systemd-221.orig/src/journal/journald.conf
++++ systemd-221/src/journal/journald.conf
+@@ -12,7 +12,7 @@
+ # See journald.conf(5) for details.
+ 
+ [Journal]
+-#Storage=auto
++Storage=none
+ #Compress=yes
+ #Seal=yes
+ #SplitMode=uid
+@@ -27,7 +27,7 @@
+ #RuntimeMaxFileSize=
+ #MaxRetentionSec=
+ #MaxFileSec=1month
+-#ForwardToSyslog=no
++ForwardToSyslog=yes
+ #ForwardToKMsg=no
+ #ForwardToConsole=no
+ #ForwardToWall=yes

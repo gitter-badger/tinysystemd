@@ -1,39 +1,19 @@
-Description: <short summary of the patch>
- TODO: Put a short summary on the line above and replace this paragraph
- with a longer explanation of this change. Complete the meta-information
- with other relevant fields (see below for details). To make it easier, the
- information below has been extracted from the changelog. Adjust it or drop
- it.
- .
- systemd (219-1) unstable; urgency=low
- .
-   * Switching to v219
+Description: fix program names after --program-transform-name
 Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 
----
-The information above should follow the Patch Tagging Guidelines, please
-checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
-are templates for supplementary fields that you might want to add:
-
-Origin: <vendor|upstream|other>, <url of original patch>
-Bug: <url in upstream bugtracker>
-Bug-Debian: https://bugs.debian.org/<bugnumber>
-Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
-Forwarded: <no|not-needed|url proving that it has been forwarded>
-Reviewed-By: <name and email of someone who approved the patch>
-Last-Update: <YYYY-MM-DD>
-
---- systemd-219.orig/Makefile.am
-+++ systemd-219/Makefile.am
-@@ -186,17 +186,17 @@ AM_CPPFLAGS = \
+--- systemd-221.orig/Makefile.am
++++ systemd-221/Makefile.am
+@@ -182,18 +182,18 @@ AM_CPPFLAGS = \
  	-DUSER_DATA_UNIT_PATH=\"$(userunitdir)\" \
  	-DCERTIFICATE_ROOT=\"$(CERTIFICATEROOT)\" \
  	-DCATALOG_DATABASE=\"$(catalogstatedir)/database\" \
 -	-DSYSTEMD_CGROUP_AGENT_PATH=\"$(rootlibexecdir)/systemd-cgroups-agent\" \
 +	-DSYSTEMD_CGROUP_AGENT_PATH=\"$(rootlibexecdir)/cgroups-agent\" \
  	-DSYSTEMD_BINARY_PATH=\"$(rootlibexecdir)/systemd\" \
+-	-DSYSTEMD_FSCK_PATH=\"$(rootlibexecdir)/systemd-fsck\" \
 -	-DSYSTEMD_SHUTDOWN_BINARY_PATH=\"$(rootlibexecdir)/systemd-shutdown\" \
 -	-DSYSTEMD_SLEEP_BINARY_PATH=\"$(rootlibexecdir)/systemd-sleep\" \
++	-DSYSTEMD_FSCK_PATH=\"$(rootlibexecdir)/fscheck\" \
 +	-DSYSTEMD_SHUTDOWN_BINARY_PATH=\"$(rootlibexecdir)/shutdown\" \
 +	-DSYSTEMD_SLEEP_BINARY_PATH=\"$(rootlibexecdir)/sleep\" \
  	-DSYSTEMCTL_BINARY_PATH=\"$(rootbindir)/systemctl\" \
@@ -49,16 +29,16 @@ Last-Update: <YYYY-MM-DD>
  	-DSYSTEM_GENERATOR_PATH=\"$(systemgeneratordir)\" \
  	-DUSER_GENERATOR_PATH=\"$(usergeneratordir)\" \
  	-DSYSTEM_SHUTDOWN_PATH=\"$(systemshutdowndir)\" \
---- systemd-219.orig/units/kmod-static-nodes.service.in
-+++ systemd-219/units/kmod-static-nodes.service.in
+--- systemd-221.orig/units/kmod-static-nodes.service.in
++++ systemd-221/units/kmod-static-nodes.service.in
 @@ -15,4 +15,4 @@ ConditionPathExists=/lib/modules/%v/modu
  [Service]
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@KMOD@ static-nodes --format=tmpfiles --output=/run/tmpfiles.d/kmod.conf
 +ExecStart=/bin/kmod static-nodes --format=tmpfiles --output=/run/tmpfiles.d/kmod.conf
---- systemd-219.orig/units/systemd-fsck-root.service.in
-+++ systemd-219/units/systemd-fsck-root.service.in
+--- systemd-221.orig/units/systemd-fsck-root.service.in
++++ systemd-221/units/systemd-fsck-root.service.in
 @@ -15,5 +15,5 @@ ConditionPathIsReadWrite=!/
  [Service]
  Type=oneshot
@@ -66,8 +46,8 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootlibexecdir@/systemd-fsck
 +ExecStart=@rootlibexecdir@/fscheck
  TimeoutSec=0
---- systemd-219.orig/units/systemd-fsck@.service.in
-+++ systemd-219/units/systemd-fsck@.service.in
+--- systemd-221.orig/units/systemd-fsck@.service.in
++++ systemd-221/units/systemd-fsck@.service.in
 @@ -16,5 +16,5 @@ Before=shutdown.target
  [Service]
  Type=oneshot
@@ -75,8 +55,8 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootlibexecdir@/systemd-fsck %f
 +ExecStart=@rootlibexecdir@/fscheck %f
  TimeoutSec=0
---- systemd-219.orig/units/systemd-initctl.service.in
-+++ systemd-219/units/systemd-initctl.service.in
+--- systemd-221.orig/units/systemd-initctl.service.in
++++ systemd-221/units/systemd-initctl.service.in
 @@ -11,5 +11,5 @@ Documentation=man:systemd-initctl.servic
  DefaultDependencies=no
  
@@ -84,8 +64,8 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootlibexecdir@/systemd-initctl
 +ExecStart=@rootlibexecdir@/initctl
  NotifyAccess=all
---- systemd-219.orig/units/systemd-journald.service.in
-+++ systemd-219/units/systemd-journald.service.in
+--- systemd-221.orig/units/systemd-journald.service.in
++++ systemd-221/units/systemd-journald.service.in
 @@ -16,7 +16,7 @@ Before=sysinit.target
  [Service]
  Type=notify
@@ -95,8 +75,8 @@ Last-Update: <YYYY-MM-DD>
  Restart=always
  RestartSec=0
  NotifyAccess=all
---- systemd-219.orig/units/systemd-logind.service.in
-+++ systemd-219/units/systemd-logind.service.in
+--- systemd-221.orig/units/systemd-logind.service.in
++++ systemd-221/units/systemd-logind.service.in
 @@ -19,7 +19,7 @@ Wants=dbus.socket
  After=dbus.socket
  
@@ -106,8 +86,8 @@ Last-Update: <YYYY-MM-DD>
  Restart=always
  RestartSec=0
  BusName=org.freedesktop.login1
---- systemd-219.orig/units/systemd-modules-load.service.in
-+++ systemd-219/units/systemd-modules-load.service.in
+--- systemd-221.orig/units/systemd-modules-load.service.in
++++ systemd-221/units/systemd-modules-load.service.in
 @@ -23,5 +23,5 @@ ConditionKernelCommandLine=|rd.modules-l
  [Service]
  Type=oneshot
@@ -115,16 +95,16 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootlibexecdir@/systemd-modules-load
 +ExecStart=@rootlibexecdir@/modules-load
  TimeoutSec=90s
---- systemd-219.orig/units/systemd-remount-fs.service.in
-+++ systemd-219/units/systemd-remount-fs.service.in
+--- systemd-221.orig/units/systemd-remount-fs.service.in
++++ systemd-221/units/systemd-remount-fs.service.in
 @@ -19,4 +19,4 @@ ConditionPathExists=/etc/fstab
  [Service]
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@rootlibexecdir@/systemd-remount-fs
 +ExecStart=@rootlibexecdir@/remount-fs
---- systemd-219.orig/units/systemd-sysctl.service.in
-+++ systemd-219/units/systemd-sysctl.service.in
+--- systemd-221.orig/units/systemd-sysctl.service.in
++++ systemd-221/units/systemd-sysctl.service.in
 @@ -17,5 +17,5 @@ ConditionPathIsReadWrite=/proc/sys/
  [Service]
  Type=oneshot
@@ -132,8 +112,8 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootlibexecdir@/systemd-sysctl
 +ExecStart=@rootlibexecdir@/sysctl-bridge
  TimeoutSec=90s
---- systemd-219.orig/units/systemd-tmpfiles-clean.service.in
-+++ systemd-219/units/systemd-tmpfiles-clean.service.in
+--- systemd-221.orig/units/systemd-tmpfiles-clean.service.in
++++ systemd-221/units/systemd-tmpfiles-clean.service.in
 @@ -15,5 +15,5 @@ Before=shutdown.target
  
  [Service]
@@ -141,32 +121,32 @@ Last-Update: <YYYY-MM-DD>
 -ExecStart=@rootbindir@/systemd-tmpfiles --clean
 +ExecStart=@rootbindir@/tmpfiles --clean
  IOSchedulingClass=idle
---- systemd-219.orig/units/systemd-tmpfiles-setup-dev.service.in
-+++ systemd-219/units/systemd-tmpfiles-setup-dev.service.in
+--- systemd-221.orig/units/systemd-tmpfiles-setup-dev.service.in
++++ systemd-221/units/systemd-tmpfiles-setup-dev.service.in
 @@ -17,4 +17,4 @@ ConditionCapability=CAP_SYS_MODULE
  [Service]
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@rootbindir@/systemd-tmpfiles --prefix=/dev --create --boot
 +ExecStart=@rootbindir@/tmpfiles --prefix=/dev --create --boot
---- systemd-219.orig/units/systemd-tmpfiles-setup.service.in
-+++ systemd-219/units/systemd-tmpfiles-setup.service.in
+--- systemd-221.orig/units/systemd-tmpfiles-setup.service.in
++++ systemd-221/units/systemd-tmpfiles-setup.service.in
 @@ -17,4 +17,4 @@ RefuseManualStop=yes
  [Service]
  Type=oneshot
  RemainAfterExit=yes
 -ExecStart=@rootbindir@/systemd-tmpfiles --create --remove --boot --exclude-prefix=/dev
 +ExecStart=@rootbindir@/tmpfiles --create --remove --boot --exclude-prefix=/dev
---- systemd-219.orig/units/systemd-update-utmp-runlevel.service.in
-+++ systemd-219/units/systemd-update-utmp-runlevel.service.in
+--- systemd-221.orig/units/systemd-update-utmp-runlevel.service.in
++++ systemd-221/units/systemd-update-utmp-runlevel.service.in
 @@ -18,4 +18,4 @@ Before=shutdown.target
  
  [Service]
  Type=oneshot
 -ExecStart=@rootlibexecdir@/systemd-update-utmp runlevel
 +ExecStart=@rootlibexecdir@/update-utmp runlevel
---- systemd-219.orig/units/systemd-update-utmp.service.in
-+++ systemd-219/units/systemd-update-utmp.service.in
+--- systemd-221.orig/units/systemd-update-utmp.service.in
++++ systemd-221/units/systemd-update-utmp.service.in
 @@ -17,5 +17,5 @@ Before=sysinit.target shutdown.target
  [Service]
  Type=oneshot
@@ -175,8 +155,8 @@ Last-Update: <YYYY-MM-DD>
 -ExecStop=@rootlibexecdir@/systemd-update-utmp shutdown
 +ExecStart=@rootlibexecdir@/update-utmp reboot
 +ExecStop=@rootlibexecdir@/update-utmp shutdown
---- systemd-219.orig/units/systemd-user-sessions.service.in
-+++ systemd-219/units/systemd-user-sessions.service.in
+--- systemd-221.orig/units/systemd-user-sessions.service.in
++++ systemd-221/units/systemd-user-sessions.service.in
 @@ -13,5 +13,5 @@ After=remote-fs.target nss-user-lookup.t
  [Service]
  Type=oneshot

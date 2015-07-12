@@ -1,4 +1,3 @@
-disable-journald-storage-and-redirect-to-syslog.patch
-fixing-acl-for-legacy.conf.patch
-fixing-program-transform-name-behaviour.patch
-fixing-tmpfiles-acl.patch
+remove-unused-groups.patch
+disable-binary-logging.patch
+fix-program-names.patch
