@@ -1,0 +1,14 @@
+Description: <short summary of the patch>
+Author: Azer Abdullaev (Like All) <like-all@yandex.com>
+
+--- systemd-221.orig/units/systemd-bus-proxyd.service.m4.in
++++ systemd-221/units/systemd-bus-proxyd.service.m4.in
+@@ -9,7 +9,7 @@
+ Description=Legacy D-Bus Protocol Compatibility Daemon
+ 
+ [Service]
+-ExecStart=@rootlibexecdir@/systemd-bus-proxyd --address=kernel:path=/sys/fs/kdbus/0-system/bus
++ExecStart=@rootlibexecdir@/bus-proxyd --address=kernel:path=/sys/fs/kdbus/0-system/bus
+ NotifyAccess=main
+ CapabilityBoundingSet=CAP_IPC_OWNER CAP_SETUID CAP_SETGID CAP_SETPCAP m4_ifdef(`HAVE_SMACK', CAP_MAC_ADMIN )
+ PrivateTmp=yes
