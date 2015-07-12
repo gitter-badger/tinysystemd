@@ -4,6 +4,7 @@ etc/systemd/user.conf
 etc/dbus-1/system.d/org.freedesktop.systemd1.conf
 etc/pam.d/systemd-user
 etc/xdg/systemd/user
+etc/X11/xinit/xinitrc.d/50-user.sh
 bin/systemctl
 bin/journalctl
 bin/sd-notify
@@ -15,6 +16,7 @@ lib/systemd/reply-password
 lib/systemd/systemd
 lib/systemd/journald
 lib/systemd/ac-power
+lib/systemd/bus-proxyd
 lib/systemd/system-shutdown
 lib/systemd/cryptsetup
 lib/systemd/system/user@.service
@@ -158,6 +160,7 @@ lib/systemd/system-generators/getty-generator
 lib/systemd/system-generators/debug-generator
 lib/systemd/system-generators/rc-local-generator
 lib/systemd/system-generators/sysv-generator
+lib/systemd/system-generators/dbus1-generator
 lib/systemd/fscheck
 lib/systemd/machine-id-commit
 lib/systemd/network
@@ -228,3 +231,6 @@ usr/share/man/man8/efi-boot-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
 usr/share/man/man8/networking.service.8
+usr/share/man/man8/bus-proxyd.8
+usr/share/man/man8/bus-proxyd@.service.8
+usr/share/man/man8/bus-proxyd.socket.8

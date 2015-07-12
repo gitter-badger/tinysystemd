@@ -6,6 +6,7 @@ systemd (221-1) UNRELEASED; urgency=medium
   * Porting patches
   * Remove util-linux from submodules
   * GTK docs removed
+  * Added forgotten files
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 08 Jul 2015 11:04:07 +0300
 
