@@ -20,6 +20,7 @@ CONFFLAGS = \
 	--with-telinit=/lib/sysvinit/telinit \
 	--disable-coredump \
 	--disable-efi \
+	--disable-kdbus \
 	--disable-myhostname \
 	--disable-vconsole \
 	--disable-microhttpd \
