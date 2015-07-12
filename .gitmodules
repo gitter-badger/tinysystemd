@@ -1,3 +1,0 @@
-[submodule "util-linux"]
-	path = util-linux
-	url = git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git
