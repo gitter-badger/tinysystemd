@@ -182,8 +182,6 @@ override_dh_install:
 	rm -f debian/install/*/usr/lib/*/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
-	rm -fr debian/install/*/usr/include/systemd/
-	rm -fr debian/install/*/usr/share/man/man3/
 	# remove udev-related files
 	rm -f debian/install/*/lib/udev/ata_id
 	rm -f debian/install/*/lib/udev/v4l_id

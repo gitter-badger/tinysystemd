@@ -88,6 +88,17 @@ Depends: ${misc:Depends}
 Description: systemd utility library
  The libsystemd0 library provides interfaces to various systemd components.
 
+Package: libsystemd-dev
+Architecture: linux-any
+Multi-Arch: same
+Section: libs
+Priority: optional
+Pre-Depends: ${shlibs:Depends},
+             ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Description: systemd utility library - development files
+ The libsystemd0 library provides interfaces to various systemd components.
+
 Package: systemd-logind
 Architecture: linux-any
 Section: admin
@@ -172,41 +183,3 @@ Description: system and service manager - additional tools
  availability of a given mount point or dbus service.
  .
  This package provides additional tools, such as sd-analyze, cgls, cgtop, etc.
-
-Package: tinysystemd-compat
-Architecture: linux-any
-Section: admin
-Priority: extra
-Pre-Depends: systemd
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         tinysystemd (= ${binary:Version})
-Description: system and service manager - additional tools
- systemd is a replacement for sysvinit.  It is dependency-based and
- able to read the LSB init script headers in addition to parsing rcN.d
- links as hints.
- .
- It also provides process supervision using cgroups and the ability to
- not only depend on other init script being started, but also
- availability of a given mount point or dbus service.
- .
- This package provides compatibility links for tinysystemd package
-
-Package: tinysystemd-utils-compat
-Architecture: linux-any
-Section: admin
-Priority: extra
-Pre-Depends: systemd
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         tinysystemd-utils (= ${binary:Version})
-Description: system and service manager - additional tools
- systemd is a replacement for sysvinit.  It is dependency-based and
- able to read the LSB init script headers in addition to parsing rcN.d
- links as hints.
- .
- It also provides process supervision using cgroups and the ability to
- not only depend on other init script being started, but also
- availability of a given mount point or dbus service.
- .
- This package provides compatibility links for tinysystemd-utils package
