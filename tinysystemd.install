@@ -136,6 +136,7 @@ lib/systemd/system-preset/90-systemd.preset
 lib/systemd/system/org.freedesktop.systemd1.busname
 lib/systemd/system/org.freedesktop.login1.busname
 lib/systemd/system/systemd-bus-proxyd.socket
+lib/systemd/system/systemd-bus-proxyd.service
 lib/systemd/system/busnames.target
 lib/systemd/system/busnames.target.wants/
 lib/systemd/system/local-fs.target.wants/
