@@ -133,6 +133,11 @@ lib/systemd/system/runlevel6.target
 lib/systemd/system/ctrl-alt-del.target
 lib/systemd/system/autovt@.service
 lib/systemd/system-preset/90-systemd.preset
+lib/systemd/system/org.freedesktop.systemd1.busname
+lib/systemd/system/org.freedesktop.login1.busname
+lib/systemd/system/systemd-bus-proxyd.socket
+lib/systemd/system/busnames.target
+lib/systemd/system/busnames.target.wants/
 lib/systemd/system/local-fs.target.wants/
 lib/systemd/system/multi-user.target.wants/
 lib/systemd/system/runlevel1.target.wants/
