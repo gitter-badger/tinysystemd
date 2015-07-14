@@ -178,7 +178,6 @@ override_dh_install:
 	rm -f debian/install/*/bin/firstboot
 	rm -f debian/install/*/bin/udevadm
 	rm -f debian/install/*/usr/bin/stdio-bridge
-	rm -f debian/install/*/usr/lib/*/pkgconfig/libsystemd.pc
 	rm -f debian/install/*/usr/lib/*/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/pkgconfig/systemd.pc
 	rm -f debian/install/*/usr/share/factory/etc/nsswitch.conf
