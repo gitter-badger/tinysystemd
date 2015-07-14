@@ -234,7 +234,6 @@ override_dh_install:
 	rm -fr debian/install/*/etc/udev/
 	rm -fr debian/install/*/lib/udev/hwdb.d/
 	# remove unnecessary / unused files
-	rm -fr debian/install/*/usr/share/man/man3/
 	rm -f debian/install/*/usr/share/doc/systemd/LICENSE.*
 	rm -f debian/install/*/var/log/README
 	rm -f debian/install/*/etc/init.d/README
