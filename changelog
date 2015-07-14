@@ -1,9 +1,15 @@
-systemd (221-2) UNRELEASED; urgency=medium
+systemd (221-3) UNRELEASED; urgency=medium
+
+  * Bump util-linux version to 2.26.2
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 14 Jul 2015 13:02:45 +0300
+
+systemd (221-2) unstable; urgency=medium
 
   * libsystemd-dev package added
   * Compat links removed
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 13 Jul 2015 21:19:40 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 14 Jul 2015 13:02:43 +0300
 
 systemd (221-1) unstable; urgency=medium
 
