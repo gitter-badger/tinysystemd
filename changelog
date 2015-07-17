@@ -1,9 +1,15 @@
-systemd (221-4) UNRELEASED; urgency=medium
+systemd (221-5) UNRELEASED; urgency=medium
+
+  * Fix util-linux dependency in the control file
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:25:52 +0300
+
+systemd (221-4) unstable; urgency=medium
 
   * Forwardport previous behaviour of fstab-generator
   * Fallback to util-linux up to 2.25
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:08:31 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:25:50 +0300
 
 systemd (221-3) unstable; urgency=medium
 
