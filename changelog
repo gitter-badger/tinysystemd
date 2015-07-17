@@ -1,8 +1,15 @@
-systemd (221-3) UNRELEASED; urgency=medium
+systemd (221-4) UNRELEASED; urgency=medium
+
+  * Forwardport previous behaviour of fstab-generator
+  * Fallback to util-linux up to 2.25
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:08:31 +0300
+
+systemd (221-3) unstable; urgency=medium
 
   * Bump util-linux version to 2.26.2
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 14 Jul 2015 13:02:45 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:08:29 +0300
 
 systemd (221-2) unstable; urgency=medium
 

@@ -2,3 +2,4 @@ remove-unused-groups.patch
 disable-binary-logging.patch
 fix-program-names.patch
 fix-bus-proxyd-name.patch
+forwardport-previous-behaviour-of-fstab-generator.patch

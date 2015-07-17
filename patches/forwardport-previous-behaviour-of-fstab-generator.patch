@@ -1,0 +1,151 @@
+Description: forwardport previous behaviour of fstab-generator
+Author: Azer Abdullaev (Like All) <like-all@yandex.com>
+
+--- systemd-221.orig/README
++++ systemd-221/README
+@@ -135,7 +135,7 @@ REQUIREMENTS:
+         During runtime, you need the following additional
+         dependencies:
+ 
+-        util-linux >= v2.26 required
++        util-linux >= v2.25 required
+         dbus >= 1.4.0 (strictly speaking optional, but recommended)
+         dracut (optional)
+         PolicyKit (optional)
+--- systemd-221.orig/man/systemd.swap.xml
++++ systemd-221/man/systemd.swap.xml
+@@ -177,8 +177,7 @@
+ 
+         <listitem><para>Swap priority to use when activating the swap
+         device or file. This takes an integer. This setting is
+-        optional and ignored when priority is set by <option>pri=</option> in the
+-        <varname>Options=</varname> option.</para></listitem>
++        optional.</para></listitem>
+       </varlistentry>
+ 
+       <varlistentry>
+--- systemd-221.orig/src/core/swap.c
++++ systemd-221/src/core/swap.c
+@@ -717,8 +717,8 @@ fail:
+ }
+ 
+ static void swap_enter_activating(Swap *s) {
+-        _cleanup_free_ char *opts = NULL;
+-        int r;
++        _cleanup_free_ char *discard = NULL;
++        int r, priority = -1;
+ 
+         assert(s);
+ 
+@@ -726,31 +726,37 @@ static void swap_enter_activating(Swap *
+         s->control_command = s->exec_command + SWAP_EXEC_ACTIVATE;
+ 
+         if (s->from_fragment) {
+-                int priority = -1;
++                fstab_filter_options(s->parameters_fragment.options, "discard\0", NULL, &discard, NULL);
+ 
+-                r = fstab_find_pri(s->parameters_fragment.options, &priority);
+-                if (r < 0)
+-                        log_warning_errno(r, "Failed to parse swap priority \"%s\", ignoring: %m", s->parameters_fragment.options);
+-                else if (r == 1 && s->parameters_fragment.priority >= 0)
+-                        log_warning("Duplicate swap priority configuration by Priority and Options fields.");
+-
+-                if (r <= 0 && s->parameters_fragment.priority >= 0) {
+-                        if (s->parameters_fragment.options)
+-                                r = asprintf(&opts, "%s,pri=%i", s->parameters_fragment.options, s->parameters_fragment.priority);
+-                        else
+-                                r = asprintf(&opts, "pri=%i", s->parameters_fragment.priority);
++                priority = s->parameters_fragment.priority;
++                if (priority < 0) {
++                        r = fstab_find_pri(s->parameters_fragment.options, &priority);
+                         if (r < 0)
+-                                goto fail;
++                                log_notice_errno(r, "Failed to parse swap priority \"%s\", ignoring: %m", s->parameters_fragment.options);
+                 }
+         }
+ 
+         r = exec_command_set(s->control_command, "/sbin/swapon", NULL);
+         if (r < 0)
+                 goto fail;
++        if (priority >= 0) {
++                char p[DECIMAL_STR_MAX(int)];
++
++                sprintf(p, "%i", priority);
++                r = exec_command_append(s->control_command, "-p", p, NULL);
++                if (r < 0)
++                        goto fail;
++        }
++
++        if (discard && !streq(discard, "none")) {
++                const char *discard_arg;
++
++                if (streq(discard, "all"))
++                        discard_arg = "--discard";
++                else
++                        discard_arg = strjoina("--discard=", discard);
+ 
+-        if (s->parameters_fragment.options || opts) {
+-                r = exec_command_append(s->control_command, "-o",
+-                                opts ? : s->parameters_fragment.options, NULL);
++                r = exec_command_append(s->control_command, discard_arg, NULL);
+                 if (r < 0)
+                         goto fail;
+         }
+--- systemd-221.orig/src/fstab-generator/fstab-generator.c
++++ systemd-221/src/fstab-generator/fstab-generator.c
+@@ -53,9 +53,10 @@ static int add_swap(
+                 bool noauto,
+                 bool nofail) {
+ 
+-        _cleanup_free_ char *name = NULL, *unit = NULL, *lnk = NULL;
++        _cleanup_free_ char *name = NULL, *unit = NULL, *lnk = NULL, *filtered = NULL;
+         _cleanup_fclose_ FILE *f = NULL;
+-        int r;
++        int r, pri = -1;
++        const char *opts;
+ 
+         assert(what);
+         assert(me);
+@@ -70,6 +71,18 @@ static int add_swap(
+                 return 0;
+         }
+ 
++        opts = me->mnt_opts;
++        r = fstab_find_pri(opts, &pri);
++        if (r < 0) {
++                log_error_errno(r, "Failed to parse priority, ignoring: %m");
++
++                /* Remove invalid pri field */
++                r = fstab_filter_options(opts, "pri\0", NULL, NULL, &filtered);
++                if (r < 0)
++                        return log_error_errno(r, "Failed to parse options: %m");
++                opts = filtered;
++        }
++
+         r = unit_name_from_path(what, ".swap", &name);
+         if (r < 0)
+                 return log_error_errno(r, "Failed to generate unit name: %m");
+@@ -96,15 +109,20 @@ static int add_swap(
+                 "What=%s\n",
+                 what);
+ 
+-        if (!isempty(me->mnt_opts) && !streq(me->mnt_opts, "defaults"))
+-                fprintf(f, "Options=%s\n", me->mnt_opts);
++        /* Note that we currently pass the priority field twice, once
++         * in Priority=, and once in Options= */
++        if (pri >= 0)
++                fprintf(f, "Priority=%i\n", pri);
++
++        if (!isempty(me->mnt_opts) && !streq(opts, "defaults"))
++                fprintf(f, "Options=%s\n", opts);
+ 
+         r = fflush_and_check(f);
+         if (r < 0)
+                 return log_error_errno(r, "Failed to write unit file %s: %m", unit);
+ 
+         /* use what as where, to have a nicer error message */
+-        r = generator_write_timeouts(arg_dest, what, what, me->mnt_opts, NULL);
++        r = generator_write_timeouts(arg_dest, what, what, opts, NULL);
+         if (r < 0)
+                 return r;
+ 
