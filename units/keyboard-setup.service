@@ -1,0 +1,16 @@
+[Unit]
+After=basic.target
+Description=Set preliminary keymap
+ConditionFileIsExecutable=/bin/setupcon
+ConditionPathExists=/etc/default/keyboard.2
+ConditionPathExists=/etc/default/console-setup.2
+ConditionPathExists=/root/.console-setup.2
+ConditionPathExists=/root/.keyboard.2
+
+[Service]
+Type=oneshot
+ExecStart=/bin/setupcon -k 2
+RemainAfterExit=true
+
+[Install]
+WantedBy=getty.target

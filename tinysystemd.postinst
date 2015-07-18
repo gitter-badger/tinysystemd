@@ -132,8 +132,11 @@ if ! [ -f /etc/dbus-1/system.d/org.freedesktop.login1.conf ]; then
     _systemctl enable /lib/systemd/system/allow-login.service
 fi
 
-# Enable networking fixup
+# Enable console-setup and keyboard-setup
+_systemctl enable /lib/systemd/system/console-setup.service
+_systemctl enable /lib/systemd/system/keyboard-setup.service
 
+# Enable networking fixup
 _systemctl enable /lib/systemd/system/networking.service
 
 # Enable fuckup services

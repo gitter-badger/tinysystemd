@@ -270,13 +270,17 @@ override_dh_install:
 	install --mode=644 debian/units/debian-fixup.service \
 		debian/units/ifup@.service \
 		debian/units/allow-login.service \
+		debian/units/console-setup.service \
+		debian/units/keyboard-setup.service \
 		debian/units/networking.service \
 		debian/units/network-fuckup.service \
 		debian/units/ssh-fuckup.service \
 		debian/tinysystemd/lib/systemd/system/
 	#install --mode=644 debian/extra/udev-finish.service \
 	#	debian/udev/lib/systemd/system/
-	install --mode=755 debian/debian-fixup \
+	install --mode=755 debian/executables/debian-fixup \
+		debian/tinysystemd/lib/systemd/
+	install --mode=755 debian/executables/sysv-install \
 		debian/tinysystemd/lib/systemd/
 	# Make sure the runlevel services are known by systemd so their targets
 	# get launches. See https://bugzilla.redhat.com/show_bug.cgi?id=1002806

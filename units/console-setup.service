@@ -1,0 +1,12 @@
+[Unit]
+After=basic.target
+Description=Set console font and keymap
+ConditionFileIsExecutable=/bin/setupcon
+
+[Service]
+Type=oneshot
+ExecStart=/bin/setupcon --save
+RemainAfterExit=true
+
+[Install]
+WantedBy=getty.target

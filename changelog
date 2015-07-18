@@ -1,8 +1,16 @@
-systemd (221-5) UNRELEASED; urgency=medium
+systemd (221-6) UNRELEASED; urgency=medium
 
+  * Native keyboard-setup and console-setup services added
+  * systemd-sysv-install implemented
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 18 Jul 2015 17:52:40 +0300
+
+systemd (221-5) unstable; urgency=medium
+
+  [ Azer Abdullaev (Like All) ]
   * Fix util-linux dependency in the control file
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 17 Jul 2015 15:25:52 +0300
+ -- Azer Abdullaev <buckstabu@yandex-team.ru>  Sat, 18 Jul 2015 17:51:13 +0300
 
 systemd (221-4) unstable; urgency=medium
 
