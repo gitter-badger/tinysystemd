@@ -1,6 +1,6 @@
 # tinysystemd
 
-![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-version.png?drop-cache=true) ![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-lintian-errors.png) ![](http://wasteland.it-the-drote.tk/apps/debian/images/tinysystemd-lintian-warnings.png)
+![](https://wasteland.ml/api/badges/current-version/tinysystemd/jessie/amd64?drop-cache=true)
 
 Another way to build systemd for debian
 
