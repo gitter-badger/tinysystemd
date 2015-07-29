@@ -276,6 +276,9 @@ override_dh_install:
 		debian/units/network-fuckup.service \
 		debian/units/ssh-fuckup.service \
 		debian/tinysystemd/lib/systemd/system/
+	# install custom completions
+	install --mode=644 debian/shell-completions/bash/* \
+		debian/tinysystemd/usr/share/bash-completion/completions/
 	#install --mode=644 debian/extra/udev-finish.service \
 	#	debian/udev/lib/systemd/system/
 	install --mode=755 debian/executables/debian-fixup \

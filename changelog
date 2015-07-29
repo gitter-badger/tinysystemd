@@ -1,9 +1,15 @@
-systemd (221-6) UNRELEASED; urgency=medium
+systemd (221-7) UNRELEASED; urgency=medium
+
+  * Alternative bash completion files
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 29 Jul 2015 10:01:34 +0300
+
+systemd (221-6) unstable; urgency=medium
 
   * Native keyboard-setup and console-setup services added
   * systemd-sysv-install implemented
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 18 Jul 2015 17:52:40 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 29 Jul 2015 10:01:32 +0300
 
 systemd (221-5) unstable; urgency=medium
 
