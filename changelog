@@ -1,8 +1,15 @@
-systemd (221-8) UNRELEASED; urgency=medium
+systemd (221-9) UNRELEASED; urgency=medium
 
+  * Bash and zsh completions
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 29 Jul 2015 18:02:34 +0300
+
+systemd (221-8) unstable; urgency=medium
+
+  [ Azer Abdullaev (Like All) ]
   * Build bump
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 29 Jul 2015 11:07:42 +0300
+ -- Azer Abdullaev <buckstabu@yandex-team.ru>  Wed, 29 Jul 2015 18:02:09 +0300
 
 systemd (221-7) unstable; urgency=medium
 
