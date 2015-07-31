@@ -1,9 +1,15 @@
-systemd (221-11) UNRELEASED; urgency=medium
+systemd (221-12) UNRELEASED; urgency=medium
+
+  * Build bump
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 31 Jul 2015 13:30:53 +0300
+
+systemd (221-11) unstable; urgency=medium
 
   * Fix systemd-inhibit compatibility symlink
   * Fix docs and manpages
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 31 Jul 2015 10:45:16 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 31 Jul 2015 13:30:52 +0300
 
 systemd (221-10) unstable; urgency=medium
 
