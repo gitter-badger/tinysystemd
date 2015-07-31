@@ -87,6 +87,14 @@
 # Because I hate long filenames for tools
 /bin/systemctl /bin/sdctl
 
+# Compatibility layers
+/bin/ask-password /opt/tinysystemd/bin/systemd-ask-password
+/bin/sd-notify /opt/tinysystemd/bin/systemd-notify
+/bin/machine-id-setup /opt/tinysystemd/bin/systemd-machine-id-setup
+/bin/tty-ask-password-agent /opt/tinysystemd/bin/systemd-tty-ask-password-agent
+/bin/tmpfiles /opt/tinysystemd/bin/systemd-tmpfiles
+/usr/bin/runservice /opt/tinysystemd/bin/systemd-run
+
 # Some compatibility links
 /lib/systemd/sysctl-bridge /lib/systemd/systemd-sysctl
 /usr/share/man/man5/sleep.conf.5.gz /usr/share/man5/sleep.conf.d.5.gz

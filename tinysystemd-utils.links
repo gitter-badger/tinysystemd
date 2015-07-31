@@ -1,0 +1,9 @@
+/usr/bin/nspawn /opt/tinysystemd/bin/systemd-nspawn
+/usr/bin/sd-delta /opt/tinysystemd/bin/systemd-delta
+/usr/bin/sd-path /opt/tinysystemd/bin/systemd-path
+/usr/bin/cgls /opt/tinysystemd/bin/systemd-cgls
+/usr/bin/sd-analyze /opt/tinysystemd/bin/systemd-analyze
+/usr/bin/cgtop /opt/tinysystemd/bin/systemd-cgtop
+/usr/bin/detect-virt /opt/tinysystemd/bin/systemd-detect-virt
+/usr/bin/sd-cat /opt/tinysystemd/bin/systemd-cat
+/bin/sd-escape /opt/tinysystemd/bin/systemd-escape
