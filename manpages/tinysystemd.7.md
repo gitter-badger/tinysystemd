@@ -1,4 +1,4 @@
-# TINYSYSTEMD 7 2015-06-10 220
+# TINYSYSTEMD 7 2015-06-10 221
 
 ## NAME
 
@@ -12,24 +12,26 @@ tinysystemd - another way to build systemd for debian
 
 **tynysystemd** aims to provide a systemd distribution that divided into small packages. Here is the list of packages:
 
-+ *tinysystemd* - the main package, provides systemd itself and other essential tools
-+ *libsystemd0* - the main systemd library
++ *tinysystemd* - main package, provides systemd itself and other essential tools
++ *libsystemd0* - systemd library
 + *systemd-sysv* - manual pages and links needed for systemd to replace sysvinit
-+ *tinysystemd-utils* - additional systemd utilities, such as *cgls*, *cgtop*, *nspawn* and other
-+ *tinysystemd-compat* - compatibility layer for the main package, symbolic links that provide old naming scheme
-+ *tinysystemd-utils-compat* - compatibility layer for the *tinysystemd-utils* package, symbolic links that provide old naming scheme
++ *systemd-logind* - systemd login daemon
++ *libpam-systemd* - systemd PAM library
++ *tinysystemd-utils* - additional systemd utilities, such as *cgls*, *cgtop*, *nspawn* and so on
 
 ## SERVICES
 
-**tinysystemd** provides some essential for working operating systems services: 
+**tinysystemd** provides some essential for working operating systems services:
 
 + *networking.service* - replacement for */etc/init.d/networking* script from *ifupdown* package. Although systemd provides SysV compatibility layer, */etc/init.d/networking* does not work properly, so I've decided to make a "native" service unit for setting up the network.
 + *network-fuckup.service* - brings up network in the rescue mode.
 + *ssh-fuckup.service* - brings up ssh in the rescue mode. Starts after *network-fuckup.service*. Doesn't start if *openssh-server* is not installed.
++ *allow-login.service* - allows user login on systems without *systemd-logind*.
++ *console-setup.service* and *keyboard-setup.service* - native replacements for */etc/init.d/console-setup* and */etc/init.d/keyboard-setup*.
 
 ## RENAMINGS
 
-As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of its binaries, except of \*ctl utilites. I think it is quite uncomfortable, so I've decided to provide a new naming scheme. If you want to use **tinysystemd** and you need to use old naming scheme, you may install *tinysystemd-compat* and *tinysystemd-utils-compat* packages. Here is the new naming scheme:
+As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of its binaries, except of \*ctl utilites. I think it is quite uncomfortable, so I've decided to provide a new naming scheme. If you want to use **tinysystemd** and you need to use old naming scheme, add command `export PATH=$PATH":/opt/tinysystemd/bin"` to your shell config file. Here is the new naming scheme:
 
 /bin:
 
@@ -60,8 +62,10 @@ As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of
     systemd-sleep                   -> sleep
     systemd-socket-proxyd           -> socket-proxyd
     systemd-sysctl                  -> sysctl-bridge
+    systemd-sysv-install            -> sysv-install
     systemd-update-done             -> update-done
     systemd-update-utmp             -> update-utmp
+    systemd-user-sessions           -> user-sessions
 
 /usr/bin:
 
@@ -85,4 +89,4 @@ If you want to report a **tinysystemd** packaging issue, please go to *https://g
 
 ## SEE ALSO
 
-systemd(1), tinysystemd-compat(7), networking.service(8)
+systemd(1)

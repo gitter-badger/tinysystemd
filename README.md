@@ -8,8 +8,6 @@ Another way to build systemd for debian
 
 **Please, note that tinysystemd is still under heavy testing and may break your boot**
 
-**Systemd v221 released few days ago and requires swapon(8) from util-linux >= 2.26, which is absent in Jessie. I'll make backport as soon as I can. Shit...**
-
 Installing
 ----------
 
@@ -40,23 +38,24 @@ At first, you need to clone vanilla `systemd` from freedesktop repo:
 
     git clone http://anongit.freedesktop.org/git/systemd/systemd.git
 
-At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v220:
+At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v221:
 
-    mv systemd/ systemd-220
-    cd systemd-220/
-    git reset --hard v220
+    mv systemd/ systemd-221
+    cd systemd-221/
+    git reset --hard v221
 
 At third, you need to pull this repo as a submodule:
 
     git submodule add https://github.com/Like-all/tinysystemd.git debian
+    cd debian && git reset --hard v221
 
 At fourth, you will need to install build dependencies:
 
-    sudo apt-get build-dep systemd
-    sudo apt-get install ruby-md2man #you can get it from my repo
+    mk-build-deps --install control
 
 Finally, create the tarball with original source code and run `debuild`:
 
+    cd ..
     dh_make --createorig
     debuild -us -uc
 
@@ -74,6 +73,8 @@ There are some additional services provided by `tinysystemd`:
 + *networking.service* - replacement for */etc/init.d/networking* script from *ifupdown* package. Although systemd provides SysV compatibility layer, */etc/init.d/networking* does not work properly, so I've decided to make a "native" service unit for setting up the network.
 + *network-fuckup.service* - brings up network in the rescue mode.
 + *ssh-fuckup.service* - brings up ssh in the rescue mode. Starts after *network-fuckup.service*. Doesn't start if *openssh-server* is not installed.
++ *allow-login.service* - allows user login on systems without *systemd-logind*.
++ *console-setup.service* and *keyboard-setup.service* - native replacements for */etc/init.d/console-setup* and */etc/init.d/keyboard-setup*.
 
 ###What about uselessd?
 
@@ -81,7 +82,7 @@ After ownership change in January 2015 uselessd looks like abandonware. I think 
 
 ###Where is udev?
 
-For now, systemd-220 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
+For now, systemd-221 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 
@@ -110,7 +111,7 @@ Instead of that mess, I just invoke `runservice`. That's easy.
 
 Please, read `man 7 tinysystemd` if you want to read about the new naming scheme.
 
-And finally, if you **really** want to get some compatibility, you may install `tinysystemd-compat` and `tinysystemd-utils-compat` packages.
+And finally, if you **really** want to get some compatibility, you may add command `export PATH=$PATH":/opt/tinysystemd/bin"` to your shell config file.
 
 ###What about graphical desktop?
 

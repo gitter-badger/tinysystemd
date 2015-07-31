@@ -1,1 +1,1 @@
-/bin/inhibit /opt/tinysystemd/bin/inhibit
+/bin/inhibit /opt/tinysystemd/bin/systemd-inhibit
