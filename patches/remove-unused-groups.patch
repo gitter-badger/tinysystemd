@@ -1,8 +1,8 @@
 Description: remove unused groups from tmpfiles
 Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 
---- systemd-221.orig/tmpfiles.d/legacy.conf
-+++ systemd-221/tmpfiles.d/legacy.conf
+--- systemd-226.orig/tmpfiles.d/legacy.conf
++++ systemd-226/tmpfiles.d/legacy.conf
 @@ -24,7 +24,7 @@ d /run/lock/subsys 0755 root root -
  # On modern systems a BSD file lock is a better choice if
  # serialization is needed on those devices.
@@ -12,8 +12,8 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  
  # /forcefsck, /fastboot and /forcequotacheck are deprecated in favor of the
  # kernel command line options 'fsck.mode=force', 'fsck.mode=skip' and
---- systemd-221.orig/tmpfiles.d/systemd.conf.m4
-+++ systemd-221/tmpfiles.d/systemd.conf.m4
+--- systemd-226.orig/tmpfiles.d/systemd.conf.m4
++++ systemd-226/tmpfiles.d/systemd.conf.m4
 @@ -27,15 +27,15 @@ d /run/log 0755 root root -
  z /run/log/journal 2755 root systemd-journal - -
  Z /run/log/journal/%m ~2750 root systemd-journal - -
@@ -28,9 +28,9 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  z /var/log/journal/%m 2755 root systemd-journal - -
  m4_ifdef(`HAVE_ACL',``
 -a+ /var/log/journal/%m - - - - d:group:adm:r-x,d:group:wheel:r-x
--A+ /var/log/journal/%m - - - - group:adm:r-x,group:wheel:r-x
+-a+ /var/log/journal/%m - - - - group:adm:r-x,group:wheel:r-x
 +a+ /var/log/journal/%m - - - - d:group:adm:r-x
-+A+ /var/log/journal/%m - - - - group:adm:r-x
++a+ /var/log/journal/%m - - - - group:adm:r-x
  '')m4_dnl
  
  d /var/lib/systemd 0755 root root -
