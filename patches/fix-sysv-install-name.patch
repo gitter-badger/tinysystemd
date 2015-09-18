@@ -1,9 +1,9 @@
 Description: fix sysv-install name to match the naming policy of tinysystemd
 Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 
---- systemd-221.orig/src/systemctl/systemctl.c
-+++ systemd-221/src/systemctl/systemctl.c
-@@ -5127,7 +5127,7 @@ static int enable_sysv_units(const char
+--- a/src/systemctl/systemctl.c
++++ b/src/systemctl/systemctl.c
+@@ -5153,7 +5153,7 @@
                  _cleanup_free_ char *p = NULL, *q = NULL, *l = NULL;
                  bool found_native = false, found_sysv;
                  unsigned c = 1;
