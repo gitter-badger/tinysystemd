@@ -235,5 +235,4 @@ usr/share/man/man8/fstab-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
 usr/share/man/man8/bus-proxyd.8
-usr/share/man/man8/bus-proxyd@.service.8
 usr/share/man/man8/bus-proxyd.socket.8
