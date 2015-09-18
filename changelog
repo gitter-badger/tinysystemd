@@ -4,6 +4,7 @@ systemd (226-1) UNRELEASED; urgency=medium
   * Refined patches
   * libmount-dev added to build dependencies
   * networkctl manpage removed
+  * efi-boot-generator manpage removed
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 10:22:26 +0300
 

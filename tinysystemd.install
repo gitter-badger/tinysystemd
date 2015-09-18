@@ -232,7 +232,6 @@ usr/share/man/man8/debug-generator.8
 usr/share/man/man8/machine-id-commit.service.8
 usr/share/man/man8/update-utmp.service.8
 usr/share/man/man8/fstab-generator.8
-usr/share/man/man8/efi-boot-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
 usr/share/man/man8/bus-proxyd.8
