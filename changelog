@@ -1,8 +1,15 @@
-systemd (225-1) UNRELEASED; urgency=medium
+systemd (225-2) UNRELEASED; urgency=medium
 
+  * First build around v226
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 10:22:26 +0300
+
+systemd (225-1) unstable; urgency=medium
+
+  [ Azer Abdullaev ]
   * First build around v225
 
- -- Azer Abdullaev <buckstabu@yandex-team.ru>  Fri, 28 Aug 2015 21:01:35 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 10:22:25 +0300
 
 systemd (223-1) unstable; urgency=medium
 
