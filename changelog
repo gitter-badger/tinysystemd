@@ -2,6 +2,7 @@ systemd (226-1) UNRELEASED; urgency=medium
 
   * First build around v226
   * Refined patches
+  * libmount-dev added to build dependencies
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 10:22:26 +0300
 
