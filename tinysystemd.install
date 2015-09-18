@@ -193,7 +193,6 @@ usr/lib/systemd/
 usr/lib/tmpfiles.d/
 usr/share/locale/
 usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
-usr/share/man/man1/networkctl.1
 usr/share/man/man1/runservice.1
 usr/share/man/man1/journalctl.1
 usr/share/man/man1/machine-id-commit.1
