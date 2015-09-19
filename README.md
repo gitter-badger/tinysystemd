@@ -36,18 +36,18 @@ Building
 
 At first, you need to clone vanilla `systemd` from freedesktop repo:
 
-    git clone http://anongit.freedesktop.org/git/systemd/systemd.git
+    git clone https://github.com/systemd/systemd.git
 
-At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v221:
+At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v226:
 
-    mv systemd/ systemd-221
-    cd systemd-221/
-    git reset --hard v221
+    mv systemd/ systemd-226
+    cd systemd-226/
+    git reset --hard v226
 
 At third, you need to pull this repo as a submodule:
 
     git submodule add https://github.com/Like-all/tinysystemd.git debian
-    cd debian && git reset --hard v221
+    cd debian && git reset --hard v226
 
 At fourth, you will need to install build dependencies:
 
@@ -82,7 +82,7 @@ After ownership change in January 2015 uselessd looks like abandonware. I think 
 
 ###Where is udev?
 
-For now, systemd-221 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
+For now, systemd-226 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 
