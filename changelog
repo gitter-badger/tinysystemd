@@ -1,8 +1,14 @@
-systemd (226-2) UNRELEASED; urgency=medium
+systemd (226-3) UNRELEASED; urgency=medium
+
+  * Testing build for armhf
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Oct 2015 14:49:04 +0200
+
+systemd (226-2) unstable; urgency=medium
 
   * Force rebuild
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 20:44:53 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Oct 2015 14:49:02 +0200
 
 systemd (226-1) unstable; urgency=medium
 
