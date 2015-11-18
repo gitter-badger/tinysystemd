@@ -15,7 +15,6 @@ CONFFLAGS = \
 	--with-zshcompletiondir=/usr/share/zsh/vendor-completions \
 	--with-sysvinit-path=/etc/init.d \
 	--with-sysvrcnd-path=/etc \
-	--with-firmware-path=/lib/firmware \
 	--with-debug-shell=/bin/bash \
 	--with-telinit=/lib/sysvinit/telinit \
 	--disable-coredump \
@@ -29,13 +28,11 @@ CONFFLAGS = \
 	--with-ntp-servers="0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org"  \
 	--with-system-uid-max=999 \
 	--with-system-gid-max=999 \
-	--disable-python-devel \
 	--disable-hibernate \
 	--enable-split-usr \
 	--disable-qrencode \
 	--disable-bootchart \
 	--disable-backlight \
-	--disable-gudev \
 	--disable-rfkill \
 	--disable-gcrypt \
 	--disable-randomseed \
@@ -50,8 +47,6 @@ CONFFLAGS = \
 	--disable-localed \
 	--disable-resolved \
 	--disable-networkd \
-	--disable-gtk-doc \
-	--disable-multi-seat-x \
 	--program-transform-name='s/systemd-sysctl/sysctl-bridge/;s/systemd-fsck/fscheck/;s/systemd-analyze/sd-analyze/;s/systemd-escape/sd-escape/;s/systemd-notify/sd-notify/;s/systemd-cat/sd-cat/;s/systemd-delta/sd-delta/;s/systemd-path/sd-path/;s/systemd-run/runservice/;s/systemd-//' \
 	--with-rc-local-script-path-start=/etc/rc.local
 
@@ -61,7 +56,6 @@ endif
 
 CONFFLAGS_deb = \
 	--enable-selinux \
-	--enable-introspection \
 	PYTHON=python3 \
 	$(NULL)
 
@@ -73,7 +67,6 @@ CONFFLAGS_udeb = \
 	--disable-smack \
 	--disable-ima \
 	--disable-introspection \
-	--disable-gtk-doc \
 	--disable-binfmt \
 	--disable-readahead \
 	--disable-bootchart \
@@ -92,9 +85,7 @@ CONFFLAGS_udeb = \
 	--disable-polkit \
 	--disable-acl \
 	--disable-gcrypt \
-	--disable-gudev \
 	--disable-rfkill \
-	--disable-multi-seat-x \
 	--disable-manpages \
 	--without-python
 
