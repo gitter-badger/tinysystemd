@@ -31,6 +31,7 @@ CONFFLAGS = \
 	--disable-hibernate \
 	--enable-split-usr \
 	--disable-qrencode \
+	--disable-importd \
 	--disable-bootchart \
 	--disable-backlight \
 	--disable-rfkill \
@@ -75,6 +76,7 @@ CONFFLAGS_udeb = \
 	--disable-randomseed \
 	--disable-backlight \
 	--disable-logind \
+	--disable-importd \
 	--disable-machined \
 	--disable-hostnamed \
 	--disable-timedated \
