@@ -1,4 +1,4 @@
-# TINYSYSTEMD 7 2015-06-10 221
+# TINYSYSTEMD 7 2015-06-10 226
 
 ## NAME
 
@@ -83,7 +83,7 @@ Please note that this is not a final renaming scheme. 'sd-' prefix now used as a
 
 ## BUGS
 
-I am not responsible for the bugs in the original systemd. If you want to file a bug that related to systemd behaviour, please send an e-mail to *systemd-bugs@lists.freedesktop.org*.
+I am not responsible for the bugs in the original systemd. If you want to file a bug that related to systemd behaviour, please go to *https://github.com/systemd/systemd/issues*.
 
 If you want to report a **tinysystemd** packaging issue, please go to *https://github.com/Like-all/tinysystemd/issues*.
 

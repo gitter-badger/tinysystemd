@@ -1,8 +1,57 @@
-systemd (221-13) UNRELEASED; urgency=medium
+systemd (226-5) UNRELEASED; urgency=medium
+
+  * Force rebuild
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 30 Oct 2015 15:20:42 +0200
+
+systemd (226-4) unstable; urgency=medium
+
+  * Force rebuild
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 30 Oct 2015 15:20:41 +0200
+
+systemd (226-3) unstable; urgency=medium
+
+  * Testing build for armhf
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 30 Oct 2015 15:04:13 +0200
+
+systemd (226-2) unstable; urgency=medium
+
+  * Force rebuild
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Oct 2015 14:49:02 +0200
+
+systemd (226-1) unstable; urgency=medium
+
+  * First build around v226
+  * Refined patches
+  * libmount-dev added to build dependencies
+  * networkctl manpage removed
+  * efi-boot-generator manpage removed
+  * bus-proxyd manpages path changed
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 20:44:51 +0300
+
+systemd (225-1) unstable; urgency=medium
+
+  [ Azer Abdullaev ]
+  * First build around v225
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 18 Sep 2015 10:22:25 +0300
+
+systemd (223-1) unstable; urgency=medium
+
+  [ Azer Abdullaev (Like All) ]
+  * First build around v223
+
+ -- Azer Abdullaev <buckstabu@yandex-team.ru>  Fri, 28 Aug 2015 21:01:32 +0300
+
+systemd (221-13) unstable; urgency=medium
 
   * Stable build of v221
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 31 Jul 2015 13:43:02 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 31 Jul 2015 16:24:04 +0300
 
 systemd (221-12) unstable; urgency=medium
 

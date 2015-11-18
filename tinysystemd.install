@@ -193,7 +193,6 @@ usr/lib/systemd/
 usr/lib/tmpfiles.d/
 usr/share/locale/
 usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
-usr/share/man/man1/networkctl.1
 usr/share/man/man1/runservice.1
 usr/share/man/man1/journalctl.1
 usr/share/man/man1/machine-id-commit.1
@@ -233,9 +232,8 @@ usr/share/man/man8/debug-generator.8
 usr/share/man/man8/machine-id-commit.service.8
 usr/share/man/man8/update-utmp.service.8
 usr/share/man/man8/fstab-generator.8
-usr/share/man/man8/efi-boot-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
-usr/share/man/man8/bus-proxyd.8
-usr/share/man/man8/bus-proxyd@.service.8
 usr/share/man/man8/bus-proxyd.socket.8
+usr/share/man/man8/bus-proxyd.8
+usr/share/man/man8/bus-proxyd.service.8
