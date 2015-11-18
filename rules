@@ -322,6 +322,7 @@ autoreconf:
 
 override_dh_autoreconf:
 	dh_autoreconf debian/rules -- autoreconf
+	./autogen.sh
 
 override_dh_auto_test:
 ifeq (, $(findstring nocheck, $(DEB_BUILD_OPTIONS)))
