@@ -1,0 +1,333 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ systemd (228-1) UNRELEASED; urgency=medium
+ .
+   * First build around 228
+Author: Azer Abdullaev (Like All) <buckstabu@yandex-team.ru>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- systemd-228.orig/Makefile.am
++++ systemd-228/Makefile.am
+@@ -1372,8 +1372,7 @@ systemd_SOURCES = \
+ 
+ systemd_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ systemd_LDADD = \
+ 	libcore.la
+@@ -1606,8 +1605,7 @@ test_engine_SOURCES = \
+ 
+ test_engine_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ test_engine_LDADD = \
+ 	libcore.la
+@@ -1617,8 +1615,7 @@ test_job_type_SOURCES = \
+ 
+ test_job_type_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ test_job_type_LDADD = \
+ 	libcore.la
+@@ -1668,8 +1665,7 @@ test_unit_name_SOURCES = \
+ 
+ test_unit_name_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ test_unit_name_LDADD = \
+ 	libcore.la
+@@ -1679,8 +1675,7 @@ test_unit_file_SOURCES = \
+ 
+ test_unit_file_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ test_unit_file_LDADD = \
+ 	libcore.la
+@@ -1919,8 +1914,7 @@ test_tables_CPPFLAGS = \
+ 
+ test_tables_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ test_tables_LDADD = \
+ 	libjournal-core.la \
+@@ -2046,8 +2040,7 @@ test_cgroup_mask_SOURCES = \
+ 	src/test/test-cgroup-mask.c
+ 
+ test_cgroup_mask_CPPFLAGS = \
+-	$(AM_CPPFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(AM_CPPFLAGS)
+ 
+ test_cgroup_mask_CFLAGS = \
+ 	$(AM_CFLAGS) \
+@@ -2090,8 +2083,7 @@ test_path_SOURCES = \
+ 	src/test/test-path.c
+ 
+ test_path_CFLAGS = \
+-	$(AM_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(AM_CFLAGS)
+ 
+ test_path_LDADD = \
+ 	libcore.la
+@@ -2100,8 +2092,7 @@ test_execute_SOURCES = \
+ 	src/test/test-execute.c
+ 
+ test_execute_CFLAGS = \
+-	$(AM_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(AM_CFLAGS)
+ 
+ test_execute_LDADD = \
+ 	libcore.la
+@@ -2134,8 +2125,7 @@ test_sched_prio_SOURCES = \
+ 	src/test/test-sched-prio.c
+ 
+ test_sched_prio_CPPFLAGS = \
+-	$(AM_CPPFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(AM_CPPFLAGS)
+ 
+ test_sched_prio_CFLAGS = \
+ 	$(AM_CFLAGS) \
+@@ -2222,8 +2212,7 @@ systemd_analyze_SOURCES = \
+ 
+ systemd_analyze_CFLAGS = \
+ 	$(AM_CFLAGS) \
+-	$(SECCOMP_CFLAGS) \
+-	$(MOUNT_CFLAGS)
++	$(SECCOMP_CFLAGS)
+ 
+ systemd_analyze_LDADD = \
+ 	libcore.la
+--- systemd-228.orig/src/core/manager.c
++++ systemd-228/src/core/manager.c
+@@ -587,7 +587,8 @@ int manager_new(ManagerRunningAs running
+         m->idle_pipe[0] = m->idle_pipe[1] = m->idle_pipe[2] = m->idle_pipe[3] = -1;
+ 
+         m->pin_cgroupfs_fd = m->notify_fd = m->signal_fd = m->time_change_fd =
+-                m->dev_autofs_fd = m->private_listen_fd = m->kdbus_fd = m->cgroup_inotify_fd = -1;
++                m->dev_autofs_fd = m->private_listen_fd = m->kdbus_fd = m->utab_inotify_fd =
++                m->cgroup_inotify_fd = -1;
+ 
+         m->current_job_id = 1; /* start as id #1, so that we can leave #0 around as "null-like" value */
+ 
+--- systemd-228.orig/src/core/manager.h
++++ systemd-228/src/core/manager.h
+@@ -23,7 +23,6 @@
+ 
+ #include <stdbool.h>
+ #include <stdio.h>
+-#include <libmount.h>
+ 
+ #include "sd-bus.h"
+ #include "sd-event.h"
+@@ -175,8 +174,10 @@ struct Manager {
+         Hashmap *devices_by_sysfs;
+ 
+         /* Data specific to the mount subsystem */
+-        struct libmnt_monitor *mount_monitor;
++        FILE *proc_self_mountinfo;
+         sd_event_source *mount_event_source;
++        int utab_inotify_fd;
++        sd_event_source *mount_utab_event_source;
+ 
+         /* Data specific to the swap filesystem */
+         FILE *proc_swaps;
+--- systemd-228.orig/src/core/mount.c
++++ systemd-228/src/core/mount.c
+@@ -23,6 +23,8 @@
+ #include <signal.h>
+ #include <stdio.h>
+ #include <sys/epoll.h>
++#include <libmount.h>
++#include <sys/inotify.h>
+ 
+ #include "sd-messages.h"
+ 
+@@ -1558,9 +1560,10 @@ static void mount_shutdown(Manager *m) {
+         assert(m);
+ 
+         m->mount_event_source = sd_event_source_unref(m->mount_event_source);
++        m->mount_utab_event_source = sd_event_source_unref(m->mount_utab_event_source);
+ 
+-        mnt_unref_monitor(m->mount_monitor);
+-        m->mount_monitor = NULL;
++        m->proc_self_mountinfo = safe_fclose(m->proc_self_mountinfo);
++        m->utab_inotify_fd = safe_close(m->utab_inotify_fd);
+ }
+ 
+ static int mount_get_timeout(Unit *u, uint64_t *timeout) {
+@@ -1584,47 +1587,48 @@ static void mount_enumerate(Manager *m)
+ 
+         mnt_init_debug(0);
+ 
+-        if (!m->mount_monitor) {
+-                int fd;
++        if (!m->proc_self_mountinfo) {
++                m->proc_self_mountinfo = fopen("/proc/self/mountinfo", "re");
++                if (!m->proc_self_mountinfo)
++                        return -errno;
+ 
+-                m->mount_monitor = mnt_new_monitor();
+-                if (!m->mount_monitor) {
+-                        log_oom();
++                r = sd_event_add_io(m->event, &m->mount_event_source, fileno(m->proc_self_mountinfo), EPOLLPRI, mount_dispatch_io, m);
++                if (r < 0)
+                         goto fail;
+-                }
+ 
+-                r = mnt_monitor_enable_kernel(m->mount_monitor, 1);
+-                if (r < 0) {
+-                        log_error_errno(r, "Failed to enable watching of kernel mount events: %m");
++                /* Dispatch this before we dispatch SIGCHLD, so that
++                 * we always get the events from /proc/self/mountinfo
++                 * before the SIGCHLD of /usr/bin/mount. */
++                r = sd_event_source_set_priority(m->mount_event_source, -10);
++                if (r < 0)
+                         goto fail;
+-                }
+ 
+-                r = mnt_monitor_enable_userspace(m->mount_monitor, 1, NULL);
+-                if (r < 0) {
+-                        log_error_errno(r, "Failed to enable watching of userspace mount events: %m");
++                (void) sd_event_source_set_description(m->mount_event_source, "mount-mountinfo-dispatch");
++        }
++
++        if (m->utab_inotify_fd < 0) {
++                m->utab_inotify_fd = inotify_init1(IN_NONBLOCK|IN_CLOEXEC);
++                if (m->utab_inotify_fd < 0) {
++                        r = -errno;
+                         goto fail;
+                 }
+ 
+-                /* mnt_unref_monitor() will close the fd */
+-                fd = r = mnt_monitor_get_fd(m->mount_monitor);
++                 (void) mkdir_p_label("/run/mount", 0755);
++                r = inotify_add_watch(m->utab_inotify_fd, "/run/mount", IN_MOVED_TO);
+                 if (r < 0) {
+-                        log_error_errno(r, "Failed to acquire watch file descriptor: %m");
++                        r = -errno;
+                         goto fail;
+                 }
+ 
+-                r = sd_event_add_io(m->event, &m->mount_event_source, fd, EPOLLIN, mount_dispatch_io, m);
+-                if (r < 0) {
+-                        log_error_errno(r, "Failed to watch mount file descriptor: %m");
++                r = sd_event_add_io(m->event, &m->mount_utab_event_source, m->utab_inotify_fd, EPOLLIN, mount_dispatch_io, m);
++                if (r < 0) 
+                         goto fail;
+-                }
+ 
+-                r = sd_event_source_set_priority(m->mount_event_source, -10);
+-                if (r < 0) {
+-                        log_error_errno(r, "Failed to adjust mount watch priority: %m");
++                r = sd_event_source_set_priority(m->mount_utab_event_source, -10);
++                if (r < 0)
+                         goto fail;
+-                }
+ 
+-                (void) sd_event_source_set_description(m->mount_event_source, "mount-monitor-dispatch");
++                (void) sd_event_source_set_description(m->mount_utab_event_source, "mount-utab-dispatch");
+         }
+ 
+         r = mount_load_proc_self_mountinfo(m, false);
+@@ -1646,27 +1650,46 @@ static int mount_dispatch_io(sd_event_so
+         int r;
+ 
+         assert(m);
+-        assert(revents & EPOLLIN);
++        assert(revents & (EPOLLPRI | EPOLLIN));
++
++        /* The manager calls this for every fd event happening on the
++         * /proc/self/mountinfo file, which informs us about mounting* table changes, and for /run/mount events which we watch
++         * table changes, and for /run/mount events which we watch
++         * for mount options. */
+ 
+-        if (fd == mnt_monitor_get_fd(m->mount_monitor)) {
++        if (fd == m->utab_inotify_fd) {
+                 bool rescan = false;
+ 
+-                /* Drain all events and verify that the event is valid.
+-                 *
+-                 * Note that libmount also monitors /run/mount mkdir if the
+-                 * directory does not exist yet. The mkdir may generate event
+-                 * which is irrelevant for us.
+-                 *
+-                 * error: r < 0; valid: r == 0, false positive: rc == 1 */
+-                do {
+-                        r = mnt_monitor_next_change(m->mount_monitor, NULL, NULL);
+-                        if (r == 0)
+-                                rescan = true;
+-                        else if (r < 0)
+-                                return log_error_errno(r, "Failed to drain libmount events");
+-                } while (r == 0);
++                /* FIXME: We *really* need to replace this with
++                 * libmount's own API for this, we should not hardcode
++                 * internal behaviour of libmount here. */
++
++                for (;;) {
++                        union inotify_event_buffer buffer;
++                        struct inotify_event *e;
++                        ssize_t l;
++
++                        l = read(fd, &buffer, sizeof(buffer));
++                        if (l < 0) {
++                                if (errno == EAGAIN || errno == EINTR)
++                                        break;
++
++                                log_error_errno(errno, "Failed to read utab inotify: %m");
++                                break;
++                        }
++
++                        FOREACH_INOTIFY_EVENT(e, buffer, l) {
++                                /* Only care about changes to utab,
++                                 * but we have to monitor the
++                                 * directory to reliably get
++                                 * notifications about when utab is
++                                 * replaced using rename(2) */
++                                if ((e->mask & IN_Q_OVERFLOW) || streq(e->name, "utab"))
++                                        rescan = true;
++                        }
++                }
++
+ 
+-                log_debug("libmount event [rescan: %s]", yes_no(rescan));
+                 if (!rescan)
+                         return 0;
+         }

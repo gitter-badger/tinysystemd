@@ -4,3 +4,6 @@ fix-program-names.patch
 fix-bus-proxyd-name.patch
 forwardport-previous-behaviour-of-fstab-generator.patch
 fix-sysv-install-name.patch
+reverse-dropping-check-for-mtab.patch
+reverse-using-libmount-to-monitor-mountinfo-and-utab.patch
+use-old-libmount.patch
