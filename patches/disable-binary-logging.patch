@@ -12,8 +12,8 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  #Compress=yes
  #Seal=yes
  #SplitMode=uid
-@@ -27,7 +27,7 @@
- #RuntimeMaxFileSize=
+@@ -29,7 +29,7 @@
+ #RuntimeMaxFiles=100
  #MaxRetentionSec=
  #MaxFileSec=1month
 -#ForwardToSyslog=no

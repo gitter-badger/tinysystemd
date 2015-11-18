@@ -1,32 +1,21 @@
 Description: forwardport previous behaviour of fstab-generator
 Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 
---- systemd-221.orig/README
-+++ systemd-221/README
-@@ -135,7 +135,7 @@ REQUIREMENTS:
-         During runtime, you need the following additional
-         dependencies:
- 
--        util-linux >= v2.26 required
-+        util-linux >= v2.25 required
-         dbus >= 1.4.0 (strictly speaking optional, but recommended)
-         dracut (optional)
-         PolicyKit (optional)
 --- systemd-221.orig/man/systemd.swap.xml
 +++ systemd-221/man/systemd.swap.xml
-@@ -177,8 +177,7 @@
+@@ -191,8 +191,7 @@
  
          <listitem><para>Swap priority to use when activating the swap
          device or file. This takes an integer. This setting is
--        optional and ignored when priority is set by <option>pri=</option> in the
--        <varname>Options=</varname> option.</para></listitem>
+-        optional and ignored when the priority is set by <option>pri=</option> in the
+-        <varname>Options=</varname> key.</para></listitem>
 +        optional.</para></listitem>
        </varlistentry>
  
        <varlistentry>
 --- systemd-221.orig/src/core/swap.c
 +++ systemd-221/src/core/swap.c
-@@ -717,8 +717,8 @@ fail:
+@@ -722,8 +722,8 @@ fail:
  }
  
  static void swap_enter_activating(Swap *s) {
@@ -37,7 +26,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  
          assert(s);
  
-@@ -726,31 +726,37 @@ static void swap_enter_activating(Swap *
+@@ -731,31 +731,37 @@ static void swap_enter_activating(Swap *
          s->control_command = s->exec_command + SWAP_EXEC_ACTIVATE;
  
          if (s->from_fragment) {
@@ -93,7 +82,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
          }
 --- systemd-221.orig/src/fstab-generator/fstab-generator.c
 +++ systemd-221/src/fstab-generator/fstab-generator.c
-@@ -53,9 +53,10 @@ static int add_swap(
+@@ -61,9 +61,10 @@ static int add_swap(
                  bool noauto,
                  bool nofail) {
  
@@ -106,7 +95,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  
          assert(what);
          assert(me);
-@@ -70,6 +71,18 @@ static int add_swap(
+@@ -78,6 +17,18 @@ static int add_swap(
                  return 0;
          }
  
@@ -125,7 +114,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
          r = unit_name_from_path(what, ".swap", &name);
          if (r < 0)
                  return log_error_errno(r, "Failed to generate unit name: %m");
-@@ -96,15 +109,20 @@ static int add_swap(
+@@ -104,15 +117,20 @@ static int add_swap(
                  "What=%s\n",
                  what);
  
