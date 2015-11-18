@@ -1,8 +1,14 @@
-systemd (226-5) UNRELEASED; urgency=medium
+systemd (228-1) UNRELEASED; urgency=medium
+
+  * First build around 228
+
+ -- Azer Abdullaev (Like All) <buckstabu@yandex-team.ru>  Wed, 18 Nov 2015 14:20:36 +0200
+
+systemd (226-5) unstable; urgency=medium
 
   * Force rebuild
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 30 Oct 2015 15:20:42 +0200
+ -- Azer Abdullaev (Like All) <buckstabu@yandex-team.ru>  Wed, 18 Nov 2015 14:20:11 +0200
 
 systemd (226-4) unstable; urgency=medium
 
