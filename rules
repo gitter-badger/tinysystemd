@@ -323,6 +323,7 @@ autoreconf:
 	./autogen.sh
 
 override_dh_autoreconf:
+	echo -e '\e[0;33mReconfiguring!\e[0m'
 	dh_autoreconf debian/rules -- autoreconf
 
 override_dh_auto_test:
