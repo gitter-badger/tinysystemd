@@ -105,7 +105,7 @@ Package: systemd-logind
 Architecture: linux-any
 Section: admin
 Priority: optional
-Pre-depends: systemd
+Pre-depends: systemd, policykit-1
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          tinysystemd (= ${binary:Version})
