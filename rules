@@ -92,6 +92,7 @@ CONFFLAGS_udeb = \
 	--without-python
 
 override_dh_auto_configure:
+	echo -e '\e[0;33mConfiguring!\e[0m'
 	dh_auto_configure --builddirectory=build-deb \
 		-- $(CONFFLAGS) $(CONFFLAGS_deb)
 	dh_auto_configure --builddirectory=build-udeb \
