@@ -180,13 +180,14 @@ Last-Update: <YYYY-MM-DD>
  
  #include "sd-messages.h"
  
-@@ -32,6 +34,7 @@
+@@ -32,6 +34,8 @@
  #include "dbus-mount.h"
  #include "escape.h"
  #include "exit-status.h"
 +#include "fd-util.h"
  #include "formats-util.h"
  #include "fstab-util.h"
++#include "fs-util.h"
  #include "log.h"
 @@ -1558,9 +1560,10 @@ static void mount_shutdown(Manager *m) {
          assert(m);
