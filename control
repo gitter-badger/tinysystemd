@@ -117,10 +117,10 @@ Architecture: linux-any
 Multi-Arch: same
 Section: admin
 Priority: optional
+Recommends: systemd-logind (= ${binary:Version})
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         systemd-logind (= ${binary:Version}),
          libpam-runtime (>= 1.0.1-6),
          dbus,
          systemd-shim (>= 8-2) | systemd-sysv
