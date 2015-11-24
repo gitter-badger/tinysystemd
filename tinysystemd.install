@@ -27,10 +27,13 @@ lib/systemd/system/initrd-udevadm-cleanup-db.service
 lib/systemd/system/sys-fs-fuse-connections.mount
 lib/systemd/system/initrd-root-fs.target
 lib/systemd/system/final.target
+lib/systemd/system/exit.target
+lib/systemd/system/systemd-exit.service
 lib/systemd/system/systemd-quotacheck.service
 lib/systemd/system/sound.target
 lib/systemd/system/systemd-fsck-root.service
 lib/systemd/system/systemd-journal-flush.service
+lib/systemd/system/systemd-machine-id-commit.service
 lib/systemd/system/console-getty.service
 lib/systemd/system/rpcbind.target
 lib/systemd/system/sysinit.target
@@ -212,8 +215,10 @@ usr/share/man/man8/cryptsetup@.service.8
 usr/share/man/man8/cryptsetup-generator.8
 usr/share/man/man8/system-update-generator.8
 usr/share/man/man8/modules-load.service.8
+usr/share/man/man8/machine-id-commit.service.8
 usr/share/man/man8/ask-password-console.service.8
 usr/share/man/man8/journald.service.8
+usr/share/man/man8/journald-audit.socket.8
 usr/share/man/man8/halt.service.8
 usr/share/man/man8/remount-fs.service.8
 usr/share/man/man8/gpt-auto-generator.8
