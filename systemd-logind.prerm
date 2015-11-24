@@ -3,6 +3,6 @@
 set -e
 
 deb-systemd-invoke stop systemd-logind.service
-deb-systemd-invoke enable /lib/systemd/system/allow-login.service
+deb-systemd-invoke enable allow-login.service
 
 #DEBHELPER#

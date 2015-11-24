@@ -1,8 +1,14 @@
-systemd (228-3) UNRELEASED; urgency=medium
+systemd (228-4) UNRELEASED; urgency=medium
+
+  * correct use of deb-systemd-invoke
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:42:50 +0200
+
+systemd (228-3) unstable; urgency=medium
 
   * Fix dependency hell
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:18:15 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:42:45 +0200
 
 systemd (228-2) unstable; urgency=medium
 
