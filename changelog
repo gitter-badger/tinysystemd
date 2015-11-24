@@ -1,8 +1,14 @@
-systemd (228-1) UNRELEASED; urgency=medium
+systemd (228-2) UNRELEASED; urgency=medium
+
+  * systemd-logind now pre-depends on policykit-1
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:02:57 +0200
+
+systemd (228-1) unstable; urgency=medium
 
   * First build around 228
 
- -- Azer Abdullaev (Like All) <buckstabu@yandex-team.ru>  Wed, 18 Nov 2015 14:20:36 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:02:55 +0200
 
 systemd (226-5) unstable; urgency=medium
 
