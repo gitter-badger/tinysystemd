@@ -1,8 +1,14 @@
-systemd (228-4) UNRELEASED; urgency=medium
+systemd (228-5) UNRELEASED; urgency=medium
+
+  * New symbols file
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 25 Nov 2015 19:01:24 +0200
+
+systemd (228-4) unstable; urgency=medium
 
   * correct use of deb-systemd-invoke
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 24 Nov 2015 18:42:50 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com> Wed, 25 Nov 2015 19:01:03 +0200
 
 systemd (228-3) unstable; urgency=medium
 
