@@ -113,6 +113,7 @@ override_dh_auto_clean:
 	quilt pop -a -f
 	dh_auto_clean --builddirectory=build-deb
 	dh_auto_clean --builddirectory=build-udeb
+	rm -rf build-*
 	rm -rf debian/install/
 	# remove pre-generated man pages so they are rebuilt
 	rm -f man/*.[13578]
