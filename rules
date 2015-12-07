@@ -125,6 +125,7 @@ override_dh_auto_clean:
 	# remove Python byte code files
 	rm -f *.pyc
 	rm -f tools/__pycache__/xml_helper.cpython-34.pyc
+	rm -f systemd-build-deps*
 
 override_dh_install:
 	# generate manpages
