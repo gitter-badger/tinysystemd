@@ -1,8 +1,14 @@
-systemd (228-11) UNRELEASED; urgency=medium
+systemd (228-12) UNRELEASED; urgency=medium
+
+  * Version bump
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 13:00:56 +0200
+
+systemd (228-11) unstable; urgency=medium
 
   * Get rid of source-is-missing warnings
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 07 Dec 2015 16:43:31 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 13:00:53 +0200
 
 systemd (228-10) unstable; urgency=medium
 
