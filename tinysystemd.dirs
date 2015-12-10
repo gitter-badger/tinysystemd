@@ -3,3 +3,4 @@ etc/systemd/system
 etc/systemd/user
 etc/systemd/network
 opt/tinysystemd/bin
+usr/share/lintian/overrides/
