@@ -218,7 +218,6 @@ usr/share/man/man8/modules-load.service.8
 usr/share/man/man8/machine-id-commit.service.8
 usr/share/man/man8/ask-password-console.service.8
 usr/share/man/man8/journald.service.8
-usr/share/man/man8/journald-audit.socket.8
 usr/share/man/man8/halt.service.8
 usr/share/man/man8/remount-fs.service.8
 usr/share/man/man8/gpt-auto-generator.8
@@ -235,6 +234,5 @@ usr/share/man/man8/update-utmp.service.8
 usr/share/man/man8/fstab-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
-usr/share/man/man8/bus-proxyd.socket.8
 usr/share/man/man8/bus-proxyd.8
 usr/share/man/man8/bus-proxyd.service.8
