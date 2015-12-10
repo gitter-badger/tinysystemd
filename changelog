@@ -1,8 +1,14 @@
-systemd (228-14) UNRELEASED; urgency=medium
+systemd (228-15) UNRELEASED; urgency=medium
+
+  * Use lintian overrides properly
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 14:41:41 +0200
+
+systemd (228-14) unstable; urgency=medium
 
   * Override dir-or-file-in-opt
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 13:57:52 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 14:41:39 +0200
 
 systemd (228-13) unstable; urgency=medium
 
