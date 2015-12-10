@@ -112,10 +112,12 @@
 /usr/share/man/man8/suspend.service.8.gz /usr/share/man/man8/hibernate.service.8.gz
 /usr/share/man/man8/suspend.service.8.gz /usr/share/man/man8/hybrid-sleep.service.8.gz
 /usr/share/man/man8/initctl.service.8.gz /usr/share/man/man8/initctl.8.gz
+/usr/share/man/man8/bus-proxyd.service.8.gz /usr/share/man/man8/bus-proxyd.socket.8.gz
 /usr/share/man/man8/initctl.service.8.gz /usr/share/man/man8/initctl.socket.8.gz
 /usr/share/man/man8/journald.service.8.gz /usr/share/man/man8/journald-dev-log.socket.8.gz
 /usr/share/man/man8/journald.service.8.gz /usr/share/man/man8/journald.8.gz
 /usr/share/man/man8/journald.service.8.gz /usr/share/man/man8/journald.socket.8.gz
+/usr/share/man/man8/journald.service.8.gz /usr/share/man/man8/journald-audit.socket.8.gz
 /usr/share/man/man8/halt.service.8.gz /usr/share/man/man8/kexec.service.8.gz
 /usr/share/man/man8/modules-load.service.8.gz /usr/share/man/man8/modules-load.8.gz
 /usr/share/man/man8/halt.service.8.gz /usr/share/man/man8/poweroff.service.8.gz

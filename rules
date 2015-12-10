@@ -109,8 +109,8 @@ override_dh_auto_install:
 		--destdir=debian/install/udeb
 
 override_dh_auto_clean:
-	rm -f configure
 	quilt pop -a -f
+	rm -f configure
 	dh_auto_clean --builddirectory=build-deb
 	dh_auto_clean --builddirectory=build-udeb
 	rm -rf build-*
@@ -139,6 +139,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/man/man8/ask-password-console.path.8
 	rm -f debian/install/*/usr/share/man/man8/ask-password-wall.path.8
 	rm -f debian/install/*/usr/share/man/man8/ask-password-wall.service.8
+	rm -f debian/install/*/usr/share/man/man8/bus-proxyd.socket.8
 	rm -f debian/install/*/usr/share/man/man8/cryptsetup.8
 	rm -f debian/install/*/usr/share/man/man8/fscheck-root.service.8
 	rm -f debian/install/*/usr/share/man/man8/fscheck.8
@@ -150,6 +151,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/man/man8/journald-dev-log.socket.8
 	rm -f debian/install/*/usr/share/man/man8/journald.8
 	rm -f debian/install/*/usr/share/man/man8/journald.socket.8
+	rm -f debian/install/*/usr/share/man/man8/journald-audit.socket.8
 	rm -f debian/install/*/usr/share/man/man8/kexec.service.8
 	rm -f debian/install/*/usr/share/man/man8/modules-load.8
 	rm -f debian/install/*/usr/share/man/man8/poweroff.service.8
