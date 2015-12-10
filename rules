@@ -285,6 +285,8 @@ override_dh_install:
 		debian/tinysystemd/lib/systemd/
 	install --mode=755 debian/executables/sysv-install \
 		debian/tinysystemd/lib/systemd/
+	install --mode=644 debian/extra/lintian-overrides/* \
+		debian/tinysystemd/usr/share/lintian/overrides/
 	# Make sure the runlevel services are known by systemd so their targets
 	# get launches. See https://bugzilla.redhat.com/show_bug.cgi?id=1002806
 	for t in poweroff rescue multi-user graphical reboot; do \
