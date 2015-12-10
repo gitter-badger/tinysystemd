@@ -11,7 +11,7 @@ lib/systemd/system/user.slice
 lib/udev/rules.d/71-seat.rules
 lib/udev/rules.d/70-uaccess.rules
 lib/udev/rules.d/73-seat-late.rules
-usr/share/lintian/overrides/systemd-logind
+debian/extra/lintian-overrides/systemd-logind /usr/share/lintian/overrides/systemd-logind
 usr/share/polkit-1/actions/org.freedesktop.login1.policy
 usr/share/man/man8/logind.8
 usr/share/man/man8/logind.service.8
