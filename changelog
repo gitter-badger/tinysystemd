@@ -1,8 +1,14 @@
-systemd (228-19) UNRELEASED; urgency=medium
+systemd (228-20) UNRELEASED; urgency=medium
+
+  * Remove *.substvars before building
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 17:13:58 +0200
+
+systemd (228-19) unstable; urgency=medium
 
   * Trying to fix unpatching
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 16:54:56 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 17:13:55 +0200
 
 systemd (228-18) unstable; urgency=medium
 

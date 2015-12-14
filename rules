@@ -115,6 +115,7 @@ override_dh_auto_clean:
 	dh_auto_clean --builddirectory=build-udeb
 	rm -rf build-*
 	rm -rf debian/install/
+	rm -rf debian/*.substvars
 	# remove pre-generated man pages so they are rebuilt
 	rm -f man/*.[13578]
 	# remove pre-generated rules and unit files so they are rebuilt
