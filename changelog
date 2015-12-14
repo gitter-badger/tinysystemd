@@ -1,8 +1,14 @@
-systemd (228-16) UNRELEASED; urgency=medium
+systemd (228-17) UNRELEASED; urgency=medium
+
+  * Use ruby-ronn instead of ruby-md2man
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 11:57:44 +0200
+
+systemd (228-16) unstable; urgency=medium
 
   * Override dir-or-file-in-opt in all packages
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 10 Dec 2015 15:26:19 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 11:57:43 +0200
 
 systemd (228-15) unstable; urgency=medium
 

@@ -130,7 +130,7 @@ override_dh_auto_clean:
 
 override_dh_install:
 	# generate manpages
-	md2man-roff debian/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
+	ronn --roff --pipe debian/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
 	# remove replaced by symlinks manpages
 	rm -f debian/install/*/usr/share/man/man5/sleep.conf.d.5
 	rm -f debian/install/*/usr/share/man/man5/system.conf.d.5
