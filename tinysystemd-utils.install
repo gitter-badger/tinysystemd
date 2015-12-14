@@ -7,7 +7,7 @@ usr/bin/sd-analyze
 usr/bin/detect-virt
 usr/bin/sd-cat
 usr/bin/nspawn
-debian/extra/lintian-overrides/tinysystemd-utils /usr/share/lintian/overrides/tinysystemd-utils
+../../extra/lintian-overrides/tinysystemd-utils /usr/share/lintian/overrides/
 usr/share/man/man1/sd-escape.1
 usr/share/man/man1/cgtop.1
 usr/share/man/man1/sd-delta.1
