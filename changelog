@@ -1,8 +1,14 @@
-systemd (228-17) UNRELEASED; urgency=medium
+systemd (228-18) UNRELEASED; urgency=medium
+
+  * Fix logind manpage symlink
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 14:59:35 +0200
+
+systemd (228-17) unstable; urgency=medium
 
   * Use ruby-ronn instead of ruby-md2man
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 11:57:44 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 14:59:33 +0200
 
 systemd (228-16) unstable; urgency=medium
 

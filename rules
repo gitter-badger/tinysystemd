@@ -153,6 +153,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/man/man8/journald.socket.8
 	rm -f debian/install/*/usr/share/man/man8/journald-audit.socket.8
 	rm -f debian/install/*/usr/share/man/man8/kexec.service.8
+	rm -f debian/install/*/usr/share/man/man8/logind.8
 	rm -f debian/install/*/usr/share/man/man8/modules-load.8
 	rm -f debian/install/*/usr/share/man/man8/poweroff.service.8
 	rm -f debian/install/*/usr/share/man/man8/quotacheck.8
