@@ -1,1 +1,5 @@
 tinysystemd: dir-or-file-in-opt
+#package itself contains systemd, so it cannot be installed without systemctl
+tinysystemd: maintainer-script-calls-systemctl
+#some services and their dependencies are symlinks
+tinysystemd: service-file-is-not-a-file
