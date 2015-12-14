@@ -124,6 +124,8 @@ override_dh_auto_clean:
 		units/systemd-udevd.service \
 		units/systemd-udev-settle.service \
 		units/systemd-udev-trigger.service
+	find m4 -type l -delete
+	find po -type l -delete
 	# remove Python byte code files
 	rm -f *.pyc
 	rm -f tools/__pycache__/xml_helper.cpython-34.pyc

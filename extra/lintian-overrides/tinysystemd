@@ -3,3 +3,5 @@ tinysystemd: dir-or-file-in-opt
 tinysystemd: maintainer-script-calls-systemctl
 #some services and their dependencies are symlinks
 tinysystemd: service-file-is-not-a-file
+#leaving this shit on systemd developers
+tinysystemd: manpage-has-errors-from-man
