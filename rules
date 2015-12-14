@@ -109,7 +109,7 @@ override_dh_auto_install:
 		--destdir=debian/install/udeb
 
 override_dh_auto_clean:
-	quilt pop -a -f
+	quilt pop -a -f || echo "Nothing to do"
 	rm -f configure
 	dh_auto_clean --builddirectory=build-deb
 	dh_auto_clean --builddirectory=build-udeb
