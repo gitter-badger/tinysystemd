@@ -1,4 +1,4 @@
-# TINYSYSTEMD 7 2015-06-10 226
+# TINYSYSTEMD 7 2015-06-10 228
 
 ## NAME
 
@@ -14,6 +14,7 @@ tinysystemd - another way to build systemd for debian
 
 + *tinysystemd* - main package, provides systemd itself and other essential tools
 + *libsystemd0* - systemd library
++ *libsystemd-dev* - systemd development library
 + *systemd-sysv* - manual pages and links needed for systemd to replace sysvinit
 + *systemd-logind* - systemd login daemon
 + *libpam-systemd* - systemd PAM library
