@@ -1,8 +1,14 @@
-systemd (228-22) UNRELEASED; urgency=medium
+systemd (228-23) UNRELEASED; urgency=medium
+
+  * Lintian rules for libsystemd-dev
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 15 Dec 2015 18:37:20 +0200
+
+systemd (228-22) unstable; urgency=medium
 
   * Get rid of many lintian warnings and errors
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 14 Dec 2015 18:30:34 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 15 Dec 2015 18:37:18 +0200
 
 systemd (228-21) unstable; urgency=medium
 

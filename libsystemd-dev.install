@@ -2,3 +2,4 @@ usr/include/systemd/
 usr/share/man/man3/
 usr/lib/*/pkgconfig/libsystemd.pc
 usr/lib/*/libsystemd.so
+../../extra/lintian-overrides/libsystemd-dev /usr/share/lintian/overrides/
