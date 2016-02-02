@@ -18,7 +18,7 @@ lib/systemd/journald
 lib/systemd/ac-power
 lib/systemd/bus-proxyd
 lib/systemd/system-shutdown
-lib/systemd/cryptsetup
+lib/systemd/cryptsetup-bridge
 lib/systemd/system/user@.service
 lib/systemd/system/container-getty@.service
 lib/systemd/system/systemd-tmpfiles-setup.service

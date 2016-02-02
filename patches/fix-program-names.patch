@@ -25,7 +25,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  	-DRANDOM_SEED_DIR=\"$(localstatedir)/lib/systemd/\" \
  	-DRANDOM_SEED=\"$(localstatedir)/lib/systemd/random-seed\" \
 -	-DSYSTEMD_CRYPTSETUP_PATH=\"$(rootlibexecdir)/systemd-cryptsetup\" \
-+	-DSYSTEMD_CRYPTSETUP_PATH=\"$(rootlibexecdir)/cryptsetup\" \
++	-DSYSTEMD_CRYPTSETUP_PATH=\"$(rootlibexecdir)/cryptsetup-bridge\" \
  	-DSYSTEM_GENERATOR_PATH=\"$(systemgeneratordir)\" \
  	-DUSER_GENERATOR_PATH=\"$(usergeneratordir)\" \
  	-DSYSTEM_SHUTDOWN_PATH=\"$(systemshutdowndir)\" \
