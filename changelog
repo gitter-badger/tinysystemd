@@ -1,8 +1,14 @@
-systemd (228-23) UNRELEASED; urgency=medium
+systemd (228-24) UNRELEASED; urgency=medium
+
+  * Hotfix cryptsetup files collision
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 02 Feb 2016 19:23:56 +0200
+
+systemd (228-23) unstable; urgency=medium
 
   * Lintian rules for libsystemd-dev
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 15 Dec 2015 18:37:20 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 02 Feb 2016 19:23:53 +0200
 
 systemd (228-22) unstable; urgency=medium
 

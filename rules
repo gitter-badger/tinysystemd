@@ -48,7 +48,7 @@ CONFFLAGS = \
 	--disable-localed \
 	--disable-resolved \
 	--disable-networkd \
-	--program-transform-name='s/systemd-sysctl/sysctl-bridge/;s/systemd-fsck/fscheck/;s/systemd-analyze/sd-analyze/;s/systemd-escape/sd-escape/;s/systemd-notify/sd-notify/;s/systemd-cat/sd-cat/;s/systemd-delta/sd-delta/;s/systemd-path/sd-path/;s/systemd-run/runservice/;s/systemd-//' \
+	--program-transform-name='s/systemd-sysctl/sysctl-bridge/;s/systemd-fsck/fscheck/;s/systemd-analyze/sd-analyze/;s/systemd-escape/sd-escape/;s/systemd-notify/sd-notify/;s/systemd-cat/sd-cat/;s/systemd-delta/sd-delta/;s/systemd-path/sd-path/;s/systemd-run/runservice/;s/systemd-cryptsetup/cryptsetup-bridge/;s/systemd-//' \
 	--with-rc-local-script-path-start=/etc/rc.local
 
 ifeq (,$(findstring stage1,$(DEB_BUILD_PROFILES)))
@@ -143,7 +143,7 @@ override_dh_install:
 	rm -f debian/install/*/usr/share/man/man8/ask-password-wall.path.8
 	rm -f debian/install/*/usr/share/man/man8/ask-password-wall.service.8
 	rm -f debian/install/*/usr/share/man/man8/bus-proxyd.socket.8
-	rm -f debian/install/*/usr/share/man/man8/cryptsetup.8
+	rm -f debian/install/*/usr/share/man/man8/cryptsetup-bridge.8
 	rm -f debian/install/*/usr/share/man/man8/fscheck-root.service.8
 	rm -f debian/install/*/usr/share/man/man8/fscheck.8
 	rm -f debian/install/*/usr/share/man/man8/hibernate-resume.8
