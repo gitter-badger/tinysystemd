@@ -11,7 +11,6 @@ Another way to build systemd for debian
 News
 ----
 
-+ **Tinysystemd version up to 228-23 conflicts with cryptsetup package. I am going to fix this in upcoming v228-24.**
 + **Starting from Debian 9.0 "Stretch" I am going to stick to stable systemd version from the Debian git repo. Backporting is hard, it takes a lot of time and may lead to unexpected behaviour of operating system.**
 
 Installing
