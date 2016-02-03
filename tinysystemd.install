@@ -116,7 +116,7 @@ lib/systemd/system/local-fs-pre.target
 lib/systemd/system/machines.target
 lib/systemd/system/systemd-journald.service
 lib/systemd/system/sigpwr.target
-lib/systemd/system/cryptsetup-bridge.target
+lib/systemd/system/cryptsetup.target
 lib/systemd/system/rescue.service
 lib/systemd/system/console-shell.service
 lib/systemd/system/rc-local.service
