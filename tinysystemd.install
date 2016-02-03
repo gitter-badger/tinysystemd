@@ -46,7 +46,7 @@ lib/systemd/system/systemd-reboot.service
 lib/systemd/system/serial-getty@.service
 lib/systemd/system/local-fs.target
 lib/systemd/system/umount.target
-lib/systemd/system/cryptsetup-bridge-pre.target
+lib/systemd/system/cryptsetup-pre.target
 lib/systemd/system/kexec.target
 lib/systemd/system/nss-lookup.target
 lib/systemd/system/systemd-poweroff.service
