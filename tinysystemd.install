@@ -46,7 +46,7 @@ lib/systemd/system/systemd-reboot.service
 lib/systemd/system/serial-getty@.service
 lib/systemd/system/local-fs.target
 lib/systemd/system/umount.target
-lib/systemd/system/cryptsetup-pre.target
+lib/systemd/system/cryptsetup-bridge-pre.target
 lib/systemd/system/kexec.target
 lib/systemd/system/nss-lookup.target
 lib/systemd/system/systemd-poweroff.service
@@ -116,7 +116,7 @@ lib/systemd/system/local-fs-pre.target
 lib/systemd/system/machines.target
 lib/systemd/system/systemd-journald.service
 lib/systemd/system/sigpwr.target
-lib/systemd/system/cryptsetup.target
+lib/systemd/system/cryptsetup-bridge.target
 lib/systemd/system/rescue.service
 lib/systemd/system/console-shell.service
 lib/systemd/system/rc-local.service
@@ -163,7 +163,7 @@ lib/systemd/modules-load
 lib/systemd/system-generators/gpt-auto-generator
 lib/systemd/system-generators/system-update-generator
 lib/systemd/system-generators/fstab-generator
-lib/systemd/system-generators/cryptsetup-generator
+lib/systemd/system-generators/cryptsetup-bridge-generator
 lib/systemd/system-generators/getty-generator
 lib/systemd/system-generators/debug-generator
 lib/systemd/system-generators/rc-local-generator
@@ -212,8 +212,8 @@ usr/share/man/man8/update-done.service.8
 usr/share/man/man8/hibernate-resume@.service.8
 usr/share/man/man8/suspend.service.8
 usr/share/man/man8/socket-proxyd.8
-usr/share/man/man8/cryptsetup@.service.8
-usr/share/man/man8/cryptsetup-generator.8
+usr/share/man/man8/cryptsetup-bridge@.service.8
+usr/share/man/man8/cryptsetup-bridge-generator.8
 usr/share/man/man8/system-update-generator.8
 usr/share/man/man8/modules-load.service.8
 usr/share/man/man8/machine-id-commit.service.8

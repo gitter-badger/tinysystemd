@@ -49,7 +49,7 @@ As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of
     systemd-activate                -> activate
     systemd-bus-proxyd              -> bus-proxyd
     systemd-cgroups-agent           -> cgroups-agent
-    systemd-cryptsetup              -> cryptsetup
+    systemd-cryptsetup              -> cryptsetup-bridge
     systemd-fsck                    -> fscheck
     systemd-initctl                 -> initctl
     systemd-journald                -> journald
