@@ -149,14 +149,14 @@ Last-Update: <YYYY-MM-DD>
  
 --- systemd-228.orig/src/core/manager.h
 +++ systemd-228/src/core/manager.h
-@@ -23,7 +23,6 @@
+@@ -19,7 +19,6 @@
+   along with systemd; If not, see <http://www.gnu.org/licenses/>.
+ ***/
  
+-#include <libmount.h>
  #include <stdbool.h>
  #include <stdio.h>
--#include <libmount.h>
  
- #include "sd-bus.h"
- #include "sd-event.h"
 @@ -175,8 +174,10 @@ struct Manager {
          Hashmap *devices_by_sysfs;
  
