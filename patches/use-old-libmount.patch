@@ -23,9 +23,9 @@ Forwarded: <no|not-needed|url proving that it has been forwarded>
 Reviewed-By: <name and email of someone who approved the patch>
 Last-Update: <YYYY-MM-DD>
 
---- systemd-228.orig/configure.ac
-+++ systemd-228/configure.ac
-@@ -437,7 +437,7 @@ AM_CONDITIONAL(HAVE_BLKID, [test "$have_
+--- a/configure.ac
++++ b/configure.ac
+@@ -438,7 +438,7 @@
  
  # ------------------------------------------------------------------------------
  have_libmount=no
