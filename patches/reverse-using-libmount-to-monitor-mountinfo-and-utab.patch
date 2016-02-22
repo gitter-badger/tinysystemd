@@ -203,7 +203,7 @@ Last-Update: <YYYY-MM-DD>
 +        m->utab_inotify_fd = safe_close(m->utab_inotify_fd);
  }
  
- static int mount_get_timeout(Unit *u, uint64_t *timeout) {
+ static int mount_get_timeout(Unit *u, usec_t *timeout) {
 @@ -1584,47 +1587,48 @@ static void mount_enumerate(Manager *m)
  
          mnt_init_debug(0);
