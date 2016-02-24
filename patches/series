@@ -7,3 +7,4 @@ fix-sysv-install-name.patch
 reverse-dropping-check-for-mtab.patch
 reverse-using-libmount-to-monitor-mountinfo-and-utab.patch
 use-old-libmount.patch
+treat-all-zeroes-as-infinity.patch
