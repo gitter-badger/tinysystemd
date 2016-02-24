@@ -133,7 +133,7 @@ override_dh_auto_clean:
 
 override_dh_install:
 	# generate manpages
-	ronn --roff --pipe debian/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
+	ronn --roff --pipe debian/extra/manpages/tinysystemd.7.md > debian/install/deb/usr/share/man/man7/tinysystemd.7
 	# remove replaced by symlinks manpages
 	rm -f debian/install/*/usr/share/man/man5/sleep.conf.d.5
 	rm -f debian/install/*/usr/share/man/man5/system.conf.d.5
@@ -266,29 +266,29 @@ override_dh_install:
 	dh_install $(BOOTSTRAP_DH_FLAGS) -Nudev-udeb -Nlibudev1-udeb --sourcedir=debian/install/deb --fail-missing
 	# install some files manually, --sourcedir makes that necessary
 	# systemd
-	install -D --mode=644 debian/init-functions.d/40-systemd \
+	install -D --mode=644 debian/extra/init-functions.d/40-systemd \
 		debian/tinysystemd/lib/lsb/init-functions.d/40-systemd
-	install --mode=644 debian/tmpfiles.d/debian.conf \
+	install --mode=644 debian/extra/tmpfiles.d/debian.conf \
 		debian/tinysystemd/usr/lib/tmpfiles.d/
-	install --mode=644 debian/units/debian-fixup.service \
-		debian/units/ifup@.service \
-		debian/units/allow-login.service \
-		debian/units/console-setup.service \
-		debian/units/keyboard-setup.service \
-		debian/units/networking.service \
-		debian/units/network-fuckup.service \
-		debian/units/ssh-fuckup.service \
+	install --mode=644 debian/extra/units/debian-fixup.service \
+		debian/extra/units/ifup@.service \
+		debian/extra/units/allow-login.service \
+		debian/extra/units/console-setup.service \
+		debian/extra/units/keyboard-setup.service \
+		debian/extra/units/networking.service \
+		debian/extra/units/network-fuckup.service \
+		debian/extra/units/ssh-fuckup.service \
 		debian/tinysystemd/lib/systemd/system/
 	# install custom completions
-	install --mode=644 debian/shell-completion/bash/* \
+	install --mode=644 debian/extra/shell-completion/bash/* \
 		debian/tinysystemd/usr/share/bash-completion/completions/
-	install --mode=644 debian/shell-completion/zsh/* \
+	install --mode=644 debian/extra/shell-completion/zsh/* \
 		debian/tinysystemd/usr/share/zsh/vendor-completions/
 	#install --mode=644 debian/extra/udev-finish.service \
 	#	debian/udev/lib/systemd/system/
-	install --mode=755 debian/executables/debian-fixup \
+	install --mode=755 debian/extra/executables/debian-fixup \
 		debian/tinysystemd/lib/systemd/
-	install --mode=755 debian/executables/sysv-install \
+	install --mode=755 debian/extra/executables/sysv-install \
 		debian/tinysystemd/lib/systemd/
 	# Make sure the runlevel services are known by systemd so their targets
 	# get launches. See https://bugzilla.redhat.com/show_bug.cgi?id=1002806

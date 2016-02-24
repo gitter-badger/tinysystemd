@@ -1,8 +1,14 @@
-systemd (229-2) UNRELEASED; urgency=medium
+systemd (229-3) UNRELEASED; urgency=medium
+
+  * Moving all of extra directories to debian/extra
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 24 Feb 2016 07:31:16 +0200
+
+systemd (229-2) unstable; urgency=medium
 
   * Treating all zeroes as infinity
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 24 Feb 2016 04:54:46 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 24 Feb 2016 07:31:12 +0200
 
 systemd (229-1) unstable; urgency=medium
 
