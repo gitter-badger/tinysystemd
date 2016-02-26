@@ -4,13 +4,16 @@
 
 Another way to build systemd for debian
 
+![Tinysystemd logo](/extra/images/logo.png)
+
 #### man 7 tinysystemd
 
-**Please, note that tinysystemd is still under heavy testing and may break your operating system.**
+**Please note that tinysystemd is still under heavy testing and may break your operating system.**
 
 News
 ----
 
++ **Tinysystemd has reached one year of stable lifetime. Although there are still lot of things to do, I am sure that this thing works. So, I am glad to announce a [new branch](https://github.com/Like-all/tinysystemd/tree/ubuntu-xenial) for upcoming Ubuntu 16.04 Xenial Xerus.**
 + **Starting from Debian 9.0 "Stretch" I am going to stick to stable systemd version from the Debian git repo. Backporting is hard, it takes a lot of time and may lead to unexpected behaviour of operating system.**
 
 Installing
