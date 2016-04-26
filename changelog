@@ -1,8 +1,14 @@
-systemd (229-3) UNRELEASED; urgency=medium
+systemd (229-4) UNRELEASED; urgency=medium
+
+  * Adopting package for new CI script
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 26 Apr 2016 18:18:14 +0300
+
+systemd (229-3) unstable; urgency=medium
 
   * Moving all of extra directories to debian/extra
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 24 Feb 2016 07:31:16 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 26 Apr 2016 18:18:11 +0300
 
 systemd (229-2) unstable; urgency=medium
 
