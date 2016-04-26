@@ -1,5 +1,6 @@
 # tinysystemd
 
+[![](https://travis-ci.org/Like-all/tinysystemd-substrate.svg?branch=master)](https://travis-ci.org/Like-all/tinysystemd-substrate)
 ![](https://wasteland.ml/api/badges/current-version/tinysystemd/jessie/amd64?drop-cache=true)
 
 Another way to build systemd for debian
