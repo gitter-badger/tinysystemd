@@ -47,7 +47,8 @@ Architecture: linux-any
 Section: admin
 Priority: optional
 Recommends: libpam-systemd,
-            dbus
+            dbus,
+            depinject
 Suggests: systemd-ui
 Pre-Depends: ${shlibs:Pre-Depends},
              ${misc:Pre-Depends}
@@ -65,7 +66,6 @@ Depends: ${shlibs:Depends},
 Breaks: lvm2 (<< 2.02.104-1),
         lsb-base (<< 4.1+Debian4),
         systemd-shim (<< 8-2)
-Recommends: depinject
 Conflicts: klogd, systemd
 Provides: systemd
 Description: system and service manager
