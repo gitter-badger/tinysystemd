@@ -1,0 +1,5 @@
+/usr/share/man/man8/cryptsetup-bridge@.service.8.gz /usr/share/man/man8/cryptsetup-bridge.8.gz
+
+# We use the built-in cryptsetup support
+/dev/null /lib/systemd/system/cryptdisks.service
+/dev/null /lib/systemd/system/cryptdisks-early.service

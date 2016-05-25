@@ -15,3 +15,4 @@ lib/udev/rules.d/73-seat-late.rules
 usr/share/polkit-1/actions/org.freedesktop.login1.policy
 usr/share/man/man8/logind.service.8
 usr/share/man/man1/loginctl.1
+usr/share/man/man1/inhibit.1

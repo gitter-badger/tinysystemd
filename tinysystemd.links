@@ -49,10 +49,6 @@
 /dev/null /lib/systemd/system/checkroot.service
 /dev/null /lib/systemd/system/checkroot-bootclean.service
 
-# We use the built-in cryptsetup support
-/dev/null /lib/systemd/system/cryptdisks.service
-/dev/null /lib/systemd/system/cryptdisks-early.service
-
 # Single user mode is implemented natively, don't use legacy SysV init scripts
 # to avoid spawning sulogin twice.
 /dev/null /lib/systemd/system/single.service
@@ -105,7 +101,6 @@
 /usr/share/man/man8/ask-password-console.service.8.gz /usr/share/man/man8/ask-password-console.path.8.gz
 /usr/share/man/man8/ask-password-console.service.8.gz /usr/share/man/man8/ask-password-wall.path.8.gz
 /usr/share/man/man8/ask-password-console.service.8.gz /usr/share/man/man8/ask-password-wall.service.8.gz
-/usr/share/man/man8/cryptsetup-bridge@.service.8.gz /usr/share/man/man8/cryptsetup-bridge.8.gz
 /usr/share/man/man8/fscheck@.service.8.gz /usr/share/man/man8/fscheck-root.service.8.gz
 /usr/share/man/man8/fscheck@.service.8.gz /usr/share/man/man8/fscheck.8.gz
 /usr/share/man/man8/hibernate-resume@.service.8.gz /usr/share/man/man8/hibernate-resume.8.gz

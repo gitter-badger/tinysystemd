@@ -1,0 +1,6 @@
+lib/systemd/cryptsetup-bridge
+lib/systemd/system/cryptsetup-pre.target
+lib/systemd/system/cryptsetup.target
+lib/systemd/system-generators/cryptsetup-bridge-generator
+usr/share/man/man8/cryptsetup-bridge@.service.8
+usr/share/man/man8/cryptsetup-bridge-generator.8
