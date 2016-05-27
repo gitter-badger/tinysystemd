@@ -1,9 +1,15 @@
-systemd (229-5) UNRELEASED; urgency=medium
+systemd (229-6) UNRELEASED; urgency=medium
+
+  * Divert old manpage of inhibit
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 27 May 2016 16:35:32 +0300
+
+systemd (229-5) unstable; urgency=medium
 
   * Separate cryptsetup support into its own package
   * Move inhibit manpage into systemd-logind package
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 25 May 2016 23:21:38 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 27 May 2016 16:35:31 +0300
 
 systemd (229-4) unstable; urgency=medium
 
