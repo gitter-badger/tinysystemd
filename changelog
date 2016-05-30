@@ -1,8 +1,14 @@
-systemd (229-6) UNRELEASED; urgency=medium
+systemd (229-7) UNRELEASED; urgency=medium
+
+  * Proper place for depinject config
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 30 May 2016 14:11:33 +0300
+
+systemd (229-6) unstable; urgency=medium
 
   * Divert old manpage of inhibit
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 27 May 2016 16:35:32 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 30 May 2016 14:11:32 +0300
 
 systemd (229-5) unstable; urgency=medium
 
