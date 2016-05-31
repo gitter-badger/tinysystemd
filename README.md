@@ -17,13 +17,22 @@ News
 + **Tinysystemd has reached one year of stable lifetime. Although there are still lot of things to do, I am sure that this thing works. So, I am glad to announce a [new branch](https://github.com/Like-all/tinysystemd/tree/ubuntu-xenial) for upcoming Ubuntu 16.04 Xenial Xerus.**
 + **Starting from Debian 9.0 "Stretch" I am going to stick to stable systemd version from the Debian git repo. Backporting is hard, it takes a lot of time and may lead to unexpected behaviour of operating system.**
 
+Trying tinysystemd using vagrant
+--------------------------------
+
+From now you can easily spin up a box with latest stable version of `tinysystemd` using `vagrant`. Just clone this repo and do the following:
+
+    cd tinysystemd/extra/vagrant
+    vagrant up
+    vagrant ssh
+
 Installing
 ----------
 
 First, add a repo to your sources:
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "8C2C65DE"
-    echo "deb http://wasteland.ml/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/wasteland.it-the-drote.list
+    echo "deb http://crapcannon.tk/debian/ jessie main contrib non-free" | sudo tee /etc/apt/sources.list.d/tinysystemd.list
     sudo apt-get update
 
 Second, you need to switch to traditional `init` and then reboot using it(otherwise you will get an error):
@@ -91,7 +100,7 @@ After ownership change in January 2015 uselessd looks like abandonware. I think 
 
 ###Where is udev?
 
-For now, systemd-228 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when kdbus will come.
+For now, systemd-228 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when ~~kdbus~~ ~~bus-1~~ some unpredictable dangerous piece of shit will come.
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 

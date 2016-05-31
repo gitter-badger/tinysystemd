@@ -1,0 +1,6 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "like-all/tinysystemd-stand-jessie"
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
+  insert_key = true
+end
