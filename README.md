@@ -20,7 +20,7 @@ News
 Trying tinysystemd using vagrant
 --------------------------------
 
-From now you can easily spin up a box with latest stable version of `tinysystemd` using `vagrant`. Just clone this repo and do the following:
+From now you can easily spin up a box with the latest stable version of `tinysystemd` using `vagrant`. Just clone this repo and do the following:
 
     cd tinysystemd/extra/vagrant
     vagrant up
