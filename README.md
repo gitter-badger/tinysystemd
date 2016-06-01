@@ -84,7 +84,7 @@ PAQ(Preventively Answered Questions)
 
 ###Why?
 
-Because I fed up with all of these wonders provided by the `systemd` project. The aim of this repo is to provide things *you only need* from origin systemd. Also it aims to avoid stupid things [like this one]().
+Because I fed up with all of these wonders provided by the `systemd` project. The aim of this repo is to provide things *you only need* from origin systemd. Also it aims to avoid stupid things [like this one](https://github.com/Like-all/tinysystemd/blob/master/extra/manpages/tinysystemd.7.md#caveats).
 
 There are some additional services provided by `tinysystemd`:
 
