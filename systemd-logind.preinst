@@ -3,8 +3,7 @@
 set -e
 
 
-if [ "$1" = "install" ] || [ "$1" = "upgrade" ] && [ -n "$2" ] && dpkg --compare-versions "$2" lt "229-5"; then
-    rm -f /usr/share/man/man1/inhibit.1.gz
-    dpkg-divert --remove --package tinysystemd --rename \
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ] && [ -n "$2" ] && dpkg --compare-versions "$2" lt "229-8"; then
+    dpkg-divert --package systemd-logind --rename \
         --divert /usr/share/man/man1/inhibit.1.gz.old /usr/share/man/man1/inhibit.1.gz
 fi
