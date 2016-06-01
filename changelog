@@ -1,9 +1,15 @@
-systemd (229-9) UNRELEASED; urgency=medium
+systemd (229-10) UNRELEASED; urgency=medium
+
+  * Trying to enable additional services safely
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 01 Jun 2016 16:06:12 +0300
+
+systemd (229-9) unstable; urgency=medium
 
   * Update documentation
   * Fix dependencies in networking.service
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 01 Jun 2016 12:55:32 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 01 Jun 2016 16:06:10 +0300
 
 systemd (229-8) unstable; urgency=medium
 

@@ -129,19 +129,31 @@ fi
 
 # Allow login if no logind implementations found
 if ! [ -f /etc/dbus-1/system.d/org.freedesktop.login1.conf ]; then
-    _systemctl enable /lib/systemd/system/allow-login.service
+    if ! _systemctl is-enabled allow-login.service; then
+        _systemctl enable /lib/systemd/system/allow-login.service
+    fi
 fi
 
 # Enable console-setup and keyboard-setup
-_systemctl enable /lib/systemd/system/console-setup.service
-_systemctl enable /lib/systemd/system/keyboard-setup.service
+if ! _systemctl is-enabled console-setup.service; then
+    _systemctl enable /lib/systemd/system/console-setup.service
+fi
+if ! _systemctl is-enabled keyboard-setup.service; then
+    _systemctl enable /lib/systemd/system/keyboard-setup.service
+fi
 
 # Enable networking fixup
-_systemctl enable /lib/systemd/system/networking.service
+if ! _systemctl is-enabled networking.service; then
+    _systemctl enable /lib/systemd/system/networking.service
+fi
 
 # Enable fuckup services
-_systemctl enable /lib/systemd/system/network-fuckup.service
-_systemctl enable /lib/systemd/system/ssh-fuckup.service
+if ! _systemctl is-enabled network-fuckup.service; then
+    _systemctl enable /lib/systemd/system/network-fuckup.service
+fi
+if ! _systemctl is-enabled ssh-fuckup.service; then
+    _systemctl reenable /lib/systemd/system/ssh-fuckup.service
+fi
 
 # Re-run systemctl enable for any service that was enabled when preinst was run.
 if dpkg --compare-versions "$2" ge "204"; then
