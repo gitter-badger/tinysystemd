@@ -10,4 +10,4 @@ ExecStop=/sbin/ifdown -a
 RemainAfterExit=true
 
 [Install]
-WantedBy=network-online.target
+WantedBy=multi-user.target
