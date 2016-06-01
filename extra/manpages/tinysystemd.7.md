@@ -1,4 +1,4 @@
-# TINYSYSTEMD 7 2015-06-10 228
+# TINYSYSTEMD 7 2016-06-01 229
 
 ## NAME
 
@@ -17,6 +17,7 @@ tinysystemd - another way to build systemd for debian
 + *libsystemd-dev* - systemd development library
 + *systemd-sysv* - manual pages and links needed for systemd to replace sysvinit
 + *systemd-logind* - systemd login daemon
++ *systemd-cryptsetup* - systemd cryptsetup support
 + *libpam-systemd* - systemd PAM library
 + *tinysystemd-utils* - additional systemd utilities, such as *cgls*, *cgtop*, *nspawn* and so on
 
@@ -82,9 +83,20 @@ As you know, origininal systemd uses ugly 'systemd-' prefix in every filename of
 
 Please note that this is not a final renaming scheme. 'sd-' prefix now used as a temporary solution for preventing collisions with existing filenames.
 
+## CAVEATS
+
+There are some other things that you have to keep in mind:
+
++ Since v229 there are two different meanings of zero in timeout settings such as *TimeoutStartSec=*, *TimeoutStopSec=*, *RuntimeMaxSec=* and so on. For the first two settings *0* means *infinity*, for the last one *0* means *zero*. Actually this may be dangerous, because *RuntimeMaxSec=0* means that your service won't start. Moreover, Lennart doesn't understand it and doesn't want to fix that ugly hack, though the awkwardness of this is pretty obvious:
+    + https://github.com/systemd/systemd/commit/36c16a7cdd6c33d7980efc2cd6a2211941f302b4#commitcomment-16077748
+    + https://github.com/systemd/systemd/issues/2697#issuecomment-187268106
+
+    So I decided to wire up handling *0 as zero* (or *now* as Lennart said) to *0 as infinity* for all the timeout settings here: https://github.com/Like-all/tinysystemd/blob/master/patches/treat-all-zeroes-as-infinity.patch . It makes things work in more predictable and safe way.
+
+
 ## BUGS
 
-I am not responsible for the bugs in the original systemd. If you want to file a bug that related to systemd behaviour, please go to *https://github.com/systemd/systemd/issues*.
+I am not responsible for the bugs in the original systemd code. If you want to file a bug that related to systemd code, please go to *https://github.com/systemd/systemd/issues*.
 
 If you want to report a **tinysystemd** packaging issue, please go to *https://github.com/Like-all/tinysystemd/issues*.
 

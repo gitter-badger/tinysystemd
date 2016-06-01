@@ -52,20 +52,20 @@ If you want to boot usnig `tinysystemd` by default, you will need to install `sy
 Building
 --------
 
-At first, you need to clone vanilla `systemd` from freedesktop repo:
+At first, you need to clone vanilla `systemd` from upstream repo:
 
     git clone https://github.com/systemd/systemd.git
 
 At second, you need to set HEAD to any release tag you want to use. Note that master branch now built around v226:
 
-    mv systemd/ systemd-228
-    cd systemd-228/
-    git reset --hard v228
+    mv systemd/ systemd-229
+    cd systemd-229/
+    git reset --hard v229
 
 At third, you need to pull this repo as a submodule:
 
     git submodule add https://github.com/Like-all/tinysystemd.git debian
-    cd debian && git reset --hard v228
+    cd debian && git reset --hard v229
 
 At fourth, you will need to install build dependencies:
 
@@ -84,7 +84,7 @@ PAQ(Preventively Answered Questions)
 
 ###Why?
 
-Because I fed up with all of these wonders provided by the `systemd` project. I only want to use service manager from it.
+Because I fed up with all of these wonders provided by the `systemd` project. The aim of this repo is to provide things *you only need* from origin systemd. Also it aims to avoid stupid things [like this one]().
 
 There are some additional services provided by `tinysystemd`:
 
@@ -100,7 +100,7 @@ After ownership change in January 2015 uselessd looks like abandonware. I think 
 
 ###Where is udev?
 
-For now, systemd-228 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when ~~kdbus~~ ~~bus-1~~ some unpredictable dangerous piece of shit will come.
+For now, systemd-229 works fine with shipping in jessie udev-215 and I don't see any reason to additionally maintain tons of debian-specific kludges around it. However, this can break when ~~kdbus~~ ~~bus-1~~ some unpredictable dangerous piece of shit will come.
 
 ###Where is systemd-cgls, systemd-cgtop, systemd-analyze, etc?
 
@@ -108,7 +108,7 @@ These tools are not necessary to keep my system up and running. However, if you 
 
 ###Where is systemd-logind, systemd-hostnamed, systemd-timedated, systemd-blowjobd, etc?
 
-For some reasons(I really don't know why) few essential packages, such as `qemu-kvm`, depend on `policykit-1` in jessie. And `policykit-1` depends on `libpam-systemd`, which depends on `systemd` that contains `systemd-logind`. I'm really tired of that shit, but I also want to provide a working solution for current Debian release, so I've decided to move `systemd-logind` into separated package. What about other fancy daemons? I don't need them at all. Modern desktop environments *are not supported by `tinysystemd`*.
+For some reasons(I really don't know why) few essential packages, such as `qemu-kvm`, depend on `policykit-1` in jessie. And `policykit-1` depends on `libpam-systemd`, which depends on `systemd` that contains `systemd-logind`. I'm really tired of that shit, but I also want to provide a working solution for current Debian release, so I've decided to move `systemd-logind` into separated package. What about other fancy daemons? Currently I don't package them, but recently I made it possible to inject dependencies into other packages, so probably soon you will be able to launch your shiny-new desktop environments under `tinysystemd`.
 
 ###Why did you rename all of the binaries?
 
