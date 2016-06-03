@@ -1,3 +1,0 @@
-Package: systemd-cryptsetup-support
-X-Depinject: cryptsetup-bin
-Depends: systemd-cryptsetup

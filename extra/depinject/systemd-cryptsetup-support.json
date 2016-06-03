@@ -1,0 +1,10 @@
+{
+    "name": "Systemd cryptsetup support",
+    "x-depinject": "cryptsetup-bin",
+    "dependencies": [
+        {
+            "name": "systemd-cryptsetup",
+            "version": "any"
+        }
+    ]
+}
