@@ -49,6 +49,11 @@ If you want to boot usnig `tinysystemd` by default, you will need to install `sy
 
     sudo apt-get install systemd-sysv
 
+Upgrading from versions before 229
+----------------------------------
+
+https://asciinema.org/a/5c12ocqz9w4clescug4i4ksjy
+
 Building
 --------
 
