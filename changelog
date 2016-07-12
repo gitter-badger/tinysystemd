@@ -1,8 +1,14 @@
-systemd (229-13) UNRELEASED; urgency=medium
+systemd (230-1) UNRELEASED; urgency=medium
+
+  * Disable wheel group
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 12 Jul 2016 11:35:06 +0300
+
+systemd (229-13) unstable; urgency=medium
 
   * v229 release(codename "Maxidrom")
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 04 Jul 2016 11:17:08 +0300
+ -- Azer Abdullaev (Like All )<like-all@yandex.com>  Tue, 12 Jul 2016 11:34:12 +0300
 
 systemd (229-12) unstable; urgency=medium
 
