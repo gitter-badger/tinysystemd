@@ -2,6 +2,7 @@ systemd (230-1) UNRELEASED; urgency=medium
 
   * Disable wheel group
   * Bus-proxyd is obsolete, removing related patches
+  * Align sysv-install patch
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 12 Jul 2016 11:35:06 +0300
 
