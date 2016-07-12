@@ -1,6 +1,5 @@
 disable-binary-logging.patch
 fix-program-names.patch
-fix-bus-proxyd-name.patch
 forwardport-previous-behaviour-of-fstab-generator.patch
 fix-sysv-install-name.patch
 reverse-dropping-check-for-mtab.patch
