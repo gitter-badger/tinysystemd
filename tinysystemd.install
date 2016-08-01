@@ -16,7 +16,6 @@ lib/systemd/reply-password
 lib/systemd/systemd
 lib/systemd/journald
 lib/systemd/ac-power
-lib/systemd/bus-proxyd
 lib/systemd/system-shutdown
 lib/systemd/system/user@.service
 lib/systemd/system/container-getty@.service
@@ -134,8 +133,6 @@ lib/systemd/system/autovt@.service
 lib/systemd/system-preset/90-systemd.preset
 lib/systemd/system/org.freedesktop.systemd1.busname
 lib/systemd/system/org.freedesktop.login1.busname
-lib/systemd/system/systemd-bus-proxyd.socket
-lib/systemd/system/systemd-bus-proxyd.service
 lib/systemd/system/busnames.target
 lib/systemd/system/busnames.target.wants/
 lib/systemd/system/local-fs.target.wants/
@@ -153,7 +150,6 @@ lib/systemd/system/graphical.target.wants/
 lib/systemd/shutdown
 lib/systemd/remount-fs
 lib/systemd/activate
-lib/systemd/bus-proxyd
 lib/systemd/update-done
 lib/systemd/quotacheck
 lib/systemd/modules-load
@@ -229,5 +225,3 @@ usr/share/man/man8/update-utmp.service.8
 usr/share/man/man8/fstab-generator.8
 usr/share/man/man8/sysv-generator.8
 usr/share/man/man8/quotacheck.service.8
-usr/share/man/man8/bus-proxyd.8
-usr/share/man/man8/bus-proxyd.service.8
