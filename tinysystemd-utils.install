@@ -6,6 +6,7 @@ usr/bin/cgls
 usr/bin/sd-analyze
 usr/bin/detect-virt
 usr/bin/sd-cat
+usr/bin/socket-activate
 usr/bin/nspawn
 ../../extra/lintian-overrides/tinysystemd-utils /usr/share/lintian/overrides/
 usr/share/man/man1/sd-escape.1
@@ -16,4 +17,5 @@ usr/share/man/man1/cgls.1
 usr/share/man/man1/sd-analyze.1
 usr/share/man/man1/detect-virt.1
 usr/share/man/man1/sd-cat.1
+usr/share/man/man1/socket-activate.1
 usr/share/man/man1/nspawn.1
