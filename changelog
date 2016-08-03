@@ -3,6 +3,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * First build of v231
   * Align treat-all-zeroes-as-infinity.patch
   * Get rid of bus-proxyd
+  * Get rid of /lib/systemd/activate
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
 

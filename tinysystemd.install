@@ -149,7 +149,6 @@ lib/systemd/system/rescue.target.wants/
 lib/systemd/system/graphical.target.wants/
 lib/systemd/shutdown
 lib/systemd/remount-fs
-lib/systemd/activate
 lib/systemd/update-done
 lib/systemd/quotacheck
 lib/systemd/modules-load
@@ -213,7 +212,6 @@ usr/share/man/man8/halt.service.8
 usr/share/man/man8/remount-fs.service.8
 usr/share/man/man8/gpt-auto-generator.8
 usr/share/man/man8/user-sessions.service.8
-usr/share/man/man8/activate.8
 usr/share/man/man8/initctl.service.8
 usr/share/man/man8/sysusers.8
 usr/share/man/man8/tmpfiles.8
