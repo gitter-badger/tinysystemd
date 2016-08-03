@@ -159,7 +159,6 @@ lib/systemd/system-generators/getty-generator
 lib/systemd/system-generators/debug-generator
 lib/systemd/system-generators/rc-local-generator
 lib/systemd/system-generators/sysv-generator
-lib/systemd/system-generators/dbus1-generator
 lib/systemd/fscheck
 lib/systemd/network
 lib/systemd/network/99-default.link

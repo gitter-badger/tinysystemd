@@ -4,6 +4,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * Align treat-all-zeroes-as-infinity.patch
   * Get rid of bus-proxyd
   * Get rid of /lib/systemd/activate
+  * /lib/systemd/system-generators/dbus1-generator is obsolete
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
 
