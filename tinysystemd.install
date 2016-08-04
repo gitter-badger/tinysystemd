@@ -27,6 +27,7 @@ lib/systemd/system/systemd-journald.socket
 lib/systemd/system/initrd-udevadm-cleanup-db.service
 lib/systemd/system/sys-fs-fuse-connections.mount
 lib/systemd/system/initrd-root-fs.target
+lib/systemd/system/initrd-root-device.target
 lib/systemd/system/final.target
 lib/systemd/system/exit.target
 lib/systemd/system/systemd-exit.service

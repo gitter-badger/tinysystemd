@@ -9,6 +9,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * Remove udev-related files
   * Add /lib/systemd/libsystemd-shared.so
   * Add /lib/systemd/resolv.conf (WAT?)
+  * Add /lib/systemd/system/initrd-root-device.target
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
 
