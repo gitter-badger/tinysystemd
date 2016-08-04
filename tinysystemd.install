@@ -17,6 +17,7 @@ lib/systemd/systemd
 lib/systemd/journald
 lib/systemd/ac-power
 lib/systemd/system-shutdown
+lib/systemd/libsystemd-shared.so
 lib/systemd/system/user@.service
 lib/systemd/system/container-getty@.service
 lib/systemd/system/systemd-tmpfiles-setup.service
