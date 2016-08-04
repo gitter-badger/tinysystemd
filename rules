@@ -192,6 +192,7 @@ override_dh_install:
 	rm -f debian/install/*/lib/udev/scsi_id
 	rm -f debian/install/*/lib/udev/cdrom_id
 	rm -f debian/install/*/lib/udev/collect
+	rm -f debian/install/*/lib/*/libudev.so.1.6.5
 	rm -f debian/install/*/lib/*/libudev.so.1.6.4
 	rm -f debian/install/*/lib/*/libudev.so.1
 	rm -f debian/install/*/lib/systemd/system/systemd-udev*

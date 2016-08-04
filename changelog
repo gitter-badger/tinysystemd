@@ -6,6 +6,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * Get rid of /lib/systemd/activate
   * /lib/systemd/system-generators/dbus1-generator is obsolete
   * socket-activate added
+  * Remove udev-related files
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
 
