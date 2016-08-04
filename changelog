@@ -8,6 +8,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * socket-activate added
   * Remove udev-related files
   * Add /lib/systemd/libsystemd-shared.so
+  * Add /lib/systemd/resolv.conf (WAT?)
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
 
