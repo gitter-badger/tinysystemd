@@ -145,7 +145,7 @@ Last-Update: <YYYY-MM-DD>
 +                m->dev_autofs_fd = m->private_listen_fd = m->kdbus_fd = m->utab_inotify_fd = m->cgroup_inotify_fd =
                  m->ask_password_inotify_fd = -1;
  
-         m->current_job_id = 1; /* start as id #1, so that we can leave #0 around as "null-like" value */
+         m->user_lookup_fds[0] = m->user_lookup_fds[1] = -1;
 --- systemd-228.orig/src/core/manager.h
 +++ systemd-228/src/core/manager.h
 @@ -19,7 +19,6 @@
