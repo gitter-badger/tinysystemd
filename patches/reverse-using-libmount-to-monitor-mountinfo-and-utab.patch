@@ -141,7 +141,7 @@ Last-Update: <YYYY-MM-DD>
          m->idle_pipe[0] = m->idle_pipe[1] = m->idle_pipe[2] = m->idle_pipe[3] = -1;
  
          m->pin_cgroupfs_fd = m->notify_fd = m->cgroups_agent_fd = m->signal_fd = m->time_change_fd =
--                m->dev_autofs_fd = m->private_listen_fd = m->kdbus_fd = m->cgroup_inotify_fd =
+-                m->dev_autofs_fd = m->private_listen_fd = m->cgroup_inotify_fd =
 +                m->dev_autofs_fd = m->private_listen_fd = m->kdbus_fd = m->utab_inotify_fd = m->cgroup_inotify_fd =
                  m->ask_password_inotify_fd = -1;
  

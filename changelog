@@ -1,4 +1,10 @@
-systemd (231-1) UNRELEASED; urgency=medium
+systemd (232-1) UNRELEASED; urgency=medium
+
+  * First build of v232
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 04 Nov 2016 13:39:10 +0300
+
+systemd (231-1) unstable; urgency=medium
 
   * First build of v231
   * Align treat-all-zeroes-as-infinity.patch
@@ -11,7 +17,7 @@ systemd (231-1) UNRELEASED; urgency=medium
   * Add /lib/systemd/resolv.conf (WAT?)
   * Add /lib/systemd/system/initrd-root-device.target
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 01 Aug 2016 13:14:51 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 04 Nov 2016 13:39:08 +0300
 
 systemd (230-1) unstable; urgency=medium
 
