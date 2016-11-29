@@ -40,8 +40,8 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
  Socket.ExecStopPost,             config_parse_exec,                  SOCKET_EXEC_STOP_POST,         offsetof(Socket, exec_command)
 -Socket.TimeoutSec,               config_parse_sec,                   0,                             offsetof(Socket, timeout_usec)
 +Socket.TimeoutSec,               config_parse_sec_fix_0,                   0,                             offsetof(Socket, timeout_usec)
- Socket.SocketUser,               config_parse_user_group,    0,                             offsetof(Socket, user)
- Socket.SocketGroup,              config_parse_user_group,    0,                             offsetof(Socket, group)
+ Socket.SocketUser,               config_parse_user_group,            0,                             offsetof(Socket, user)
+ Socket.SocketGroup,              config_parse_user_group,            0,                             offsetof(Socket, group)
  Socket.SocketMode,               config_parse_mode,                  0,                             offsetof(Socket, socket_mode)
 @@ -272,10 +272,10 @@ Socket.Accept,                   config_
  Socket.MaxConnections,           config_parse_unsigned,              0,                             offsetof(Socket, max_connections)
