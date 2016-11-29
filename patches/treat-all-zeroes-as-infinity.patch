@@ -5,7 +5,7 @@ Author: Azer Abdullaev (Like All) <like-all@yandex.com>
 +++ systemd-229/src/core/load-fragment-gperf.gperf.m4
 @@ -182,9 +182,9 @@ Unit.IgnoreOnSnapshot,           config_
  Unit.JobTimeoutSec,              config_parse_sec_fix_0,             0,                             offsetof(Unit, job_timeout)
- Unit.JobTimeoutAction,           config_parse_failure_action,        0,                             offsetof(Unit, job_timeout_action)
+ Unit.JobTimeoutAction,           config_parse_emergency_action,        0,                             offsetof(Unit, job_timeout_action)
  Unit.JobTimeoutRebootArgument,   config_parse_string,                0,                             offsetof(Unit, job_timeout_reboot_arg)
 -Unit.StartLimitIntervalSec,      config_parse_sec,                   0,                             offsetof(Unit, start_limit.interval)
 +Unit.StartLimitIntervalSec,      config_parse_sec_fix_0,             0,                             offsetof(Unit, start_limit.interval)
